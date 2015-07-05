@@ -5,13 +5,10 @@
   <% @models.each do |model| %>
     <div class="col-md-3">
       <div class="thumbnail">
-        <%= image_tag model.image.url %>
+            <%= image_tag model.image.url %>
         <div class="caption">
         <h3><%= model.name %></h3>
         <p><%= model.description %></p>
-        <p><%= model.category %></p>
-        <p><%= model.city %></p>
-        <p><%= model.organization %></p>
           <%= link_to 'Show', model, class: "btn btn-link" %>
           <%= link_to 'Edit', edit_model_path(model), class: "btn btn-link" %>
           <%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>

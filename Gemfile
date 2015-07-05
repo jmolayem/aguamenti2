@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
+gem "paperclip-dropbox", ">=1.1.7"
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development
 # Use SCSS for stylesheets
@@ -26,6 +27,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.2.0.2'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "paperclip", "~> 4.2"
+gem 'figaro'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_12factor', group: :production
