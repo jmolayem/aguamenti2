@@ -5,7 +5,7 @@
   <% @models.each do |model| %>
     <div class="col-md-3">
       <div class="thumbnail">
-            
+            <%= image_tag model.image.url %>
         <div class="caption">
         <h3><%= model.name %></h3>
         <p><%= model.description %></p>
