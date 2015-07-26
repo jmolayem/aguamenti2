@@ -9,4 +9,6 @@ class Model < ActiveRecord::Base
 end
 validates :name, :description, presence: true
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+belongs_to :user
 end

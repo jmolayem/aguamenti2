@@ -1,6 +1,9 @@
 class ModelsController < ApplicationController
   before_action :set_model, only: [:show, :edit, :update, :destroy]
 
+def home
+end
+
   # GET /models
   # GET /models.json
   def index
@@ -25,6 +28,7 @@ class ModelsController < ApplicationController
   # POST /models.json
   def create
     @model = Model.new(model_params)
+    @model.user_id = current_user.id
 
     respond_to do |format|
       if @model.save

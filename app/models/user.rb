@@ -8,4 +8,5 @@ email_regex = /\A[\w+\-.]+@usc\.edu\z/i
    validates :email, :presence => true,
                   :format   => { :with => email_regex },
                   :uniqueness => { :case_sensitive => false }
+    has_many :models, dependent: :destroy
 end
