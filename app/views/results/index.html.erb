@@ -1,0 +1,13 @@
+<h1>Results</h1>
+<div>
+  <% @results.each do |result| %>
+    <div>
+      <h2>Employee id</h2>
+      <p><%= result.employee_id %></p>
+      <h2>Project id</h2>
+      <p><%= result.project %></p>
+      <h2>Hours</h2>
+      <p><%= result.hours %></p>
+    </div>
+  <% end %>
+</div>

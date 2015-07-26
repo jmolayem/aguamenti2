@@ -1,17 +1,15 @@
 class ModelsController < ApplicationController
   before_action :set_model, only: [:show, :edit, :update, :destroy]
 
-def home
-end
+  def home
+  end
 
   # GET /models
-  # GET /models.json
   def index
     @models = Model.all
   end
 
   # GET /models/1
-  # GET /models/1.json
   def show
   end
 
@@ -25,43 +23,29 @@ end
   end
 
   # POST /models
-  # POST /models.json
   def create
-    @model = Model.new(model_params)
-    @model.user_id = current_user.id
-
+    MachineLearningWorker.perform_async(model_params, current_user.id)
     respond_to do |format|
-      if @model.save
-        format.html { redirect_to @model, notice: 'Model was successfully created.' }
-        format.json { render :show, status: :created, location: @model }
-      else
-        format.html { render :new }
-        format.json { render json: @model.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to results_index_path, notice: 'Wait while the result is being processed...' }
     end
   end
 
   # PATCH/PUT /models/1
-  # PATCH/PUT /models/1.json
   def update
     respond_to do |format|
       if @model.update(model_params)
         format.html { redirect_to @model, notice: 'Model was successfully updated.' }
-        format.json { render :show, status: :ok, location: @model }
       else
         format.html { render :edit }
-        format.json { render json: @model.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /models/1
-  # DELETE /models/1.json
   def destroy
     @model.destroy
     respond_to do |format|
       format.html { redirect_to models_url, notice: 'Model was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -73,6 +57,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def model_params
-      params.require(:model).permit(:name, :description, :category, :city, :organization, :image)
+      params.permit(:Empl, :Project)
     end
 end

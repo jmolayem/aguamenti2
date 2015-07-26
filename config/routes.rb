@@ -1,4 +1,6 @@
 Govmind::Application.routes.draw do
+  get 'results/index'
+
   devise_for :users
   resources :models
 
