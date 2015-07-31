@@ -1,0 +1,13 @@
+<div class="nested-fields">
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :kind %>
+    <%= f.text_area :kind %>
+  </div>
+
+  <%= link_to_remove_association "remove input", f %>
+</div>

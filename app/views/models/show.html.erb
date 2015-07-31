@@ -10,6 +10,20 @@
     <h3><%= @model.name %></h3>
     <p><%= @model.description %></p>
   </div>
+
+  <%= form_tag generate_result_model_path(@model) do %>
+    <% @model.inputs.each do |input| %>
+      <div class="form-group">
+        <%= label_tag "model[#{input.name}]", input.name %>
+        <%= input_tag_for_input(input) %>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= submit_tag 'Submit', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+
 </div>
 
 <%= link_to 'Edit', edit_model_path(@model), class: "btn btn-link" %>

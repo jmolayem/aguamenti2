@@ -1,5 +1,6 @@
 class Result < ActiveRecord::Base
   belongs_to :user
+  belongs_to :model
 
   def employee_id
     formatted_result[0]

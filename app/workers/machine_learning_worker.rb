@@ -1,11 +1,11 @@
 class MachineLearningWorker
   include Sidekiq::Worker
 
-  def perform(model_params, user_id)
-    params = model_params.merge("Hours" => '0')
-    puts params
-    Rails.logger.info params
-    Result.create!(body: MachineLearning.create_post(params), user: User.find(user_id))
+  def perform(result_params, model_id, user_id)
+    Rails.logger.info result_params
+    user = User.find(user_id)
+    model = Model.find(model_id)
+    Result.create!(body: MachineLearning.create_post(model.api_key, result_params), user: user, model: model)
     Rails.logger.info "Successful operation"
   end
 end

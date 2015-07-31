@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150726193821) do
+ActiveRecord::Schema.define(version: 20150731200304) do
+
+  create_table "inputs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "kind"
+    t.integer  "model_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "inputs", ["model_id"], name: "index_inputs_on_model_id"
 
   create_table "models", force: :cascade do |t|
     t.string   "name"
@@ -26,15 +36,29 @@ ActiveRecord::Schema.define(version: 20150726193821) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
+    t.string   "api_key"
   end
+
+  create_table "outputs", force: :cascade do |t|
+    t.integer  "model_id"
+    t.string   "name"
+    t.string   "kind"
+    t.string   "default_value"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "outputs", ["model_id"], name: "index_outputs_on_model_id"
 
   create_table "results", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "model_id"
   end
 
+  add_index "results", ["model_id"], name: "index_results_on_model_id"
   add_index "results", ["user_id"], name: "index_results_on_user_id"
 
   create_table "users", force: :cascade do |t|

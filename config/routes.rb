@@ -2,7 +2,11 @@ Govmind::Application.routes.draw do
   get 'results/index'
 
   devise_for :users
-  resources :models
+  resources :models do
+    member do
+      post :generate_result
+    end
+  end
 
   get "pages/about"
   get "pages/contact"

@@ -1,4 +1,4 @@
-<%= form_tag models_path, multipart: true do %>
+<%= form_for @model, multipart: true do |f| %>
   <% if flash[:errors].try(:any?) %>
       <div id="error_explanation" class="alert alert-danger alert-dismissable">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -13,13 +13,36 @@
   <% end %>
 
   <div class="form-group">
-    <%= label_tag :Empl, 'Employee id' %><br>
-    <%= text_field_tag :Empl, '', class: "form-control" %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
+
   <div class="form-group">
-    <%= label_tag :Project %><br>
-    <%= text_area_tag :Project, '', class: "form-control" %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :api_key %>
+    <%= f.text_field :api_key %>
+  </div>
+
+  <div class="form-group">
+    <h2>Inputs</h2>
+    <%= f.fields_for :inputs do |input_fields| %>
+      <%= render 'input_fields', f: input_fields %>
+    <% end %>
+    <%= link_to_add_association 'add input', f, :inputs %>
+  </div>
+
+  <div class="form-group">
+    <h2>Outputs</h2>
+    <%= f.fields_for :outputs do |output_fields| %>
+      <%= render 'output_fields', f: output_fields %>
+    <% end %>
+    <%= link_to_add_association 'add output', f, :outputs %>
+  </div>
+
   <div class="form-group">
     <%= submit_tag 'Submit', class: "btn btn-primary" %>
   </div>
