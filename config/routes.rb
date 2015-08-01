@@ -1,4 +1,10 @@
 Govmind::Application.routes.draw do
+  get 'pages/donate'
+
+  get 'pages/legal'
+
+  get 'pages/contribute'
+
   get 'results/index'
 
   devise_for :users
@@ -10,6 +16,7 @@ Govmind::Application.routes.draw do
 
   get "pages/about"
   get "pages/contact"
+  get "pages/subscribe"
 
   root 'models#home'
 

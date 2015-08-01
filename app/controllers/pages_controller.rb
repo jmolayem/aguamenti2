@@ -4,4 +4,10 @@ class PagesController < ApplicationController
 
   def contact
   end
+
+  def contribute
+  end
+
+  def volunteer
+  end
 end
