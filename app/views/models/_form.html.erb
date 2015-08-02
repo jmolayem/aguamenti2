@@ -49,6 +49,6 @@
   </div>
 
   <div class="form-group">
-    <%= submit_tag 'Submit', class: "btn btn-primary" %>
+    <%= f.button "Connect Neuron", class: "btn btn-success", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Firing Neuron..."} %>
   </div>
 <% end %>
