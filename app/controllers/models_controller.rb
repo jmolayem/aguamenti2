@@ -4,7 +4,7 @@ class ModelsController < ApplicationController
 
   # GET /models
   def index
-    @models = Model.all
+    @models = Model.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /models/1

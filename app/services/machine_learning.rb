@@ -1,6 +1,6 @@
 # MachineLearning.create_post({Empl: '10181', Project: '103531', Hours: '0'})
 class MachineLearning
-  API_URI = "https://ussouthcentral.services.azureml.net/workspaces/a0b8378fac2542d7a5d7297f1c1f139d/services/ca5efa957cbb465d90b26e90f7797bae/execute?api-version=2.0&details=true"
+  API_URI = "https://ussouthcentral.services.azureml.net/workspaces/a4feb6bbd48142d69a5a54df2bd448c8/services/618815772abb4c329d35c4c3b186a446/execute?api-version=2.0&details=true"
 
   def self.create_post(api_key, result_params)
     new(api_key, result_params).create_post

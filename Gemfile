@@ -4,6 +4,8 @@ ruby '2.2.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 gem "paperclip-dropbox", ">=1.1.7"
+gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development
 # Use SCSS for stylesheets
