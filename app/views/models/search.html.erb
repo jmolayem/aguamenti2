@@ -1,0 +1,30 @@
+<div class="center">
+<%= link_to new_model_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
+  <i class="glyphicon glyphicon-plus"></i> New Brain
+<% end %>
+</div>
+
+<br>
+
+<div class="center">
+<div class="row">
+  <% @models.each do |model| %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+            <%= image_tag model.image.url %>
+        <div class="caption">
+        <h3><%= model.name %></h3>
+        <p><%= model.description %></p>
+          <%= link_to 'Show', model, class: "glyphicon glyphicon-eye-open"%>
+          <%= link_to 'Edit', edit_model_path(model), class: "glyphicon glyphicon-pencil" %>
+          <%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-trash" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<br>
+
+<%= will_paginate @models, renderer: BootstrapPagination::Rails  %>
+
+<br>

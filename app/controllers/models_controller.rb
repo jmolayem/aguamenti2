@@ -2,6 +2,14 @@ class ModelsController < ApplicationController
   def home
   end
 
+  def search
+  if params[:search].present?
+    @models = Model.search(params[:search])
+  else
+    @models = Model.all
+  end
+end
+
   # GET /models
   def index
     @models = Model.paginate(:page => params[:page], :per_page => 10)

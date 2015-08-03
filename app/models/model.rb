@@ -1,4 +1,6 @@
 class Model < ActiveRecord::Base
+  searchkick
+
   has_many :inputs
   has_many :outputs
   has_many :results

@@ -9,6 +9,9 @@ Govmind::Application.routes.draw do
 
   devise_for :users
   resources :models do
+    collection do
+      get 'search'
+    end
     member do
       post :generate_result
     end
