@@ -1,5 +1,10 @@
 class Model < ActiveRecord::Base
-  searchkick
+  include AlgoliaSearch
+
+  algoliasearch do
+
+  end
+end
 
   has_many :inputs
   has_many :outputs
