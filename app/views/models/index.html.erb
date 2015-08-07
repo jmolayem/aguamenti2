@@ -17,8 +17,12 @@
         <h3><%= model.name %></h3>
         <p><%= model.description %></p>
           <%= link_to 'Show', model, class: "glyphicon glyphicon-eye-open"%>
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
           <%= link_to 'Edit', edit_model_path(model), class: "glyphicon glyphicon-pencil" %>
           <%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-trash" %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
