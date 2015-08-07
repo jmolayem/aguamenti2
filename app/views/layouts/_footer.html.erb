@@ -1,15 +1,10 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container">
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-left">
     	<li><%= link_to "Subscribe", pages_subscribe_path %></li>
     	<li><%= link_to "Donate", pages_donate_path %></li>
-    	<li><%= link_to "Legal", pages_legal_path %></li>
     	<li><%= link_to "Help Us Build", pages_contribute_path %></li>
     </ul>
-    <li>
-    	<%= render 'layouts/facebook' %>
-       <div class="fb-like" data-href="https://govmind.herokuapp.com/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></li>
-</div>
   </div>
 </nav>
 

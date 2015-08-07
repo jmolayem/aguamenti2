@@ -33,6 +33,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :endpoint %>
+    <%= f.text_field :endpoint %>
+  </div>
+
+  <div class="form-group">
     <h2>Inputs</h2>
     <%= f.fields_for :inputs do |input_fields| %>
       <%= render 'input_fields', f: input_fields %>

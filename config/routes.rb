@@ -18,7 +18,7 @@ Govmind::Application.routes.draw do
   end
 
   get "pages/about"
-  get "pages/contact"
+  get "pages/team"
   get "pages/subscribe"
 
   root 'models#home'

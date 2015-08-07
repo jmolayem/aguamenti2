@@ -21,11 +21,35 @@
     <div class="form-group">
       <%= submit_tag 'Submit', class: "btn btn-primary" %>
     </div>
-    <div class="center">
-<div class="fb-comments" data-href="http://localhost:3000/models" data-width="600" data-numposts="5"></div>
-</div>
   <% end %>
 
+
+</div>
+
+<div class="row">
+  <table class="table">
+    <thead>
+      <% @model.inputs.each do |input| %>
+        <th><%= input.name %></th>
+      <% end %>
+      <% @model.outputs.each do |output| %>
+        <th><%= output.name %></th>
+      <% end %>
+    </thead>
+    <tbody>
+      <% @results.each do |result| %>
+        <tr>
+        <% result.values.each do |value| %>
+          <td><%= value %></td>
+        <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="center">
+  <div class="fb-comments" data-href="http://localhost:3000/models" data-width="600" data-numposts="5"></div>
 </div>
 
 <%= link_to 'Edit', edit_model_path(@model), class: "btn btn-link" %>

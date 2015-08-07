@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731200304) do
+ActiveRecord::Schema.define(version: 20150807184729) do
 
   create_table "inputs", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150731200304) do
     t.integer  "model_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "order"
   end
 
   add_index "inputs", ["model_id"], name: "index_inputs_on_model_id"
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150731200304) do
     t.datetime "image_updated_at"
     t.integer  "user_id"
     t.string   "api_key"
+    t.string   "endpoint"
   end
 
   create_table "outputs", force: :cascade do |t|
@@ -46,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150731200304) do
     t.string   "default_value"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "order"
   end
 
   add_index "outputs", ["model_id"], name: "index_outputs_on_model_id"

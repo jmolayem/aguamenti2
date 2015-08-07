@@ -24,6 +24,9 @@
           </ul>
         </li>
       </ul>
+<ul class="nav navbar-nav">
+       <div class="fb-like" data-href="https://govmind.herokuapp.com/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false">
+</ul>
   <% if user_signed_in? %>
   <%= form_tag search_models_path, method: :get, class: "navbar-form navbar-left" do %>
       <p>
@@ -42,7 +45,6 @@
         <li><%= link_to "Sign In", new_user_session_path %></li>
       <% end %>
          <li><a href="/pages/about">About</a></li>
-        <li><a href="/pages/contact">Contact</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

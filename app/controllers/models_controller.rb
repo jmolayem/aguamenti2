@@ -17,7 +17,7 @@ end
 
   # GET /models/1
   def show
-    model
+    @results = current_user.results.where(model: model)
   end
 
   # GET /models/new
@@ -78,7 +78,9 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def model_params
-      params.require(:model).permit(:image,:id, :name, :description, :api_key, inputs_attributes: [:id, :name, :kind, :_destroy], outputs_attributes: [:id, :name, :kind, :default_value, :_destroy])
+      params.require(:model).permit(:image,:id, :name, :description, :api_key, :endpoint,
+                                    inputs_attributes: [:id, :name, :kind, :order, :_destroy],
+                                    outputs_attributes: [:id, :name, :kind, :order, :default_value, :_destroy])
     end
 
     def result_params
