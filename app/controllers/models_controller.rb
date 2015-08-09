@@ -2,7 +2,7 @@ class ModelsController < ApplicationController
   def home
   end
 
-  def search
+def search
   if params[:search].present?
     @models = Model.search(params[:search])
   else

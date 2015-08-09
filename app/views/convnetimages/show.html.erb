@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @convnetimage.name %>
+</p>
+
+<p>
+  <strong>Api:</strong>
+  <%= @convnetimage.api %>
+</p>
+
+<p>
+  <strong>Modelid:</strong>
+  <%= @convnetimage.modelid %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @convnetimage.description %>
+</p>
+
+<%= link_to 'Edit', edit_convnetimage_path(@convnetimage) %> |
+<%= link_to 'Back', convnetimages_path %>

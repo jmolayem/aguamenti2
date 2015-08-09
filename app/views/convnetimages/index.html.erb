@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Convnetimages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Api</th>
+      <th>Modelid</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @convnetimages.each do |convnetimage| %>
+      <tr>
+        <td><%= convnetimage.name %></td>
+        <td><%= convnetimage.api %></td>
+        <td><%= convnetimage.modelid %></td>
+        <td><%= convnetimage.description %></td>
+        <td><%= link_to 'Show', convnetimage %></td>
+        <td><%= link_to 'Edit', edit_convnetimage_path(convnetimage) %></td>
+        <td><%= link_to 'Destroy', convnetimage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Convnetimage', new_convnetimage_path %>

@@ -1,0 +1,34 @@
+<%= form_for @convnetimage, multipart:true do |f| %>
+  <% if flash[:errors].try(:any?) %>
+      <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h2><%= pluralize(flash[:errors].keys.count, "error") %> prohibited this model from being saved:</h2>
+
+      <ul>
+      <% flash[:errors].each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :api %><br>
+    <%= f.text_field :api %>
+  </div>
+  <div class="field">
+    <%= f.label :modelid %><br>
+    <%= f.text_field :modelid %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
