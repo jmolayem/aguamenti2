@@ -2,6 +2,9 @@
 
 <h1>Listing Convnetimages</h1>
 
+<%= link_to new_convnetimage_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
+  <i class="glyphicon glyphicon-plus"></i> New Brain
+<% end %>
 <table>
   <thead>
     <tr>
@@ -29,5 +32,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Convnetimage', new_convnetimage_path %>

@@ -6,18 +6,21 @@ class deeplearning
   end
 
   def initialize(api, payload)
+    @endpoint = "http://api.ersatzlabs.com/api/predict/image"
     @headers = {
-      Authorization: "Bearer #{api}",
-      content_type: :multipart/form-data;,
+      #Authorization: "Bearer #{api}",
       accept: :json
     }
-
-    @payload = payload
-
+  
+    @payload = {
+      'key' => 'asdasdasd',
+      'file-0' => File.new('/path/to/file'),
+      'file-1' => File.new('...')
+    }
   end
 
   def create_post
-    RestClient.post @endpoint, payload.to_json, @headers
+    RestClient.post @endpoint, @payload, @headers
   end
 
   private

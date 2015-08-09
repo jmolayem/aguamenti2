@@ -37,9 +37,8 @@
   <% end %>
       <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
-        <li><%= link_to "Gallery", models_path %></li> 
-        <li><%= link_to "Vision", covnetimages_path %></li> 
-        <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+        <li><%= link_to "Analytics", models_path %></li> 
+        <li><%= link_to "Image Recognition", convnetimages_path %></li> 
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= link_to "Sign Up", new_user_registration_path %></li>

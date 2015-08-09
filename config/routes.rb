@@ -18,7 +18,7 @@ Govmind::Application.routes.draw do
     end
   end
 
-  resources :covnetimages do
+  resources :convnetimages do
     collection do
       get 'search'
     end

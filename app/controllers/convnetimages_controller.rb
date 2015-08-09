@@ -4,20 +4,20 @@ class ConvnetimagesController < ApplicationController
 #incorporated search to our scaffold
 def search
   if params[:search].present?
-    @covnets = covnetimage.search(params[:search])
+    @convnets = Convnetimage.search(params[:search])
   else
-    @covnets = covnetimage.all
+    @convnets = Convnetimage.all
   end
 end
   # GET /convnetimages
    def index
-    @covnetimages = covnetimage.paginate(:page => params[:page], :per_page => 10)
+    @convnetimages = Convnetimage.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /convnetimages/1
   # GET /convnetimages/1.json
   def show
-    @covnetimages = current_user.results.where(covnetimage: covnetimage)
+    @convnetimages = current_user.results.where(convnetimage: convnetimage)
   end
 
   # GET /convnetimages/new
@@ -27,7 +27,7 @@ end
 
   # GET /convnetimages/1/edit
   def edit
-    covnetimage
+    convnetimage
   end
 
   # POST /convnetimages
@@ -39,7 +39,7 @@ end
       if @convnetimage.save
         format.html { redirect_to @convnetimage, notice: 'Convnetimage was successfully created.' }
       else
-        flash[:errors] = @covnetimage
+        flash[:errors] = @convnetimage
         format.html { render :new }
       end
     end
@@ -83,9 +83,11 @@ end
     def convnetimage_params
       params.require(:convnetimage).permit(:name, :api, :modelid, :description)
     end
-
-    def payload
+    #Below function may not be necessary. this function below simply mashed our inputs and outputs together for acceptable format with Azure.
+    def result_params
       inputs = params.require(:model).permit(model.inputs.map(&:name))
+      model.outputs.reduce(inputs) do |hash, output|
+        hash.merge(output.name => output.default_value)
       end
     end
 end

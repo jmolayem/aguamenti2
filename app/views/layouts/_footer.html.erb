@@ -1,9 +1,16 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container">
     <ul class="nav navbar-nav navbar-left">
+    <% if user_signed_in? %>
+    	<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
     	<li><%= link_to "Subscribe", pages_subscribe_path %></li>
     	<li><%= link_to "Donate", pages_donate_path %></li>
     	<li><%= link_to "Help Us Build", pages_contribute_path %></li>
+    <% else %>
+    	<li><%= link_to "Subscribe", pages_subscribe_path %></li>
+    	<li><%= link_to "Donate", pages_donate_path %></li>
+    	<li><%= link_to "Help Us Build", pages_contribute_path %></li>
+  	 <% end %>
     </ul>
   </div>
 </nav>

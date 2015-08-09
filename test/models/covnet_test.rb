@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CovnetTest < ActiveSupport::TestCase
+class ConvnetTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
