@@ -1,5 +1,6 @@
 Govmind::Application.routes.draw do
 
+  resources :natlangs
   get 'pages/donate'
 
   get 'pages/legal'
@@ -26,6 +27,8 @@ Govmind::Application.routes.draw do
       post :generate_result
     end
   end
+
+  resources :data, only: [:index] 
 
   get "pages/about"
   get "pages/team"

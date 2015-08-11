@@ -39,12 +39,13 @@
               <% if user_signed_in? %>
         <li><%= link_to "Analytics", models_path %></li> 
         <li><%= link_to "Image Recognition", convnetimages_path %></li> 
+        <li><%= link_to "Language Processing", natlangs_path %></li> 
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= link_to "Sign Up", new_user_registration_path %></li>
         <li><%= link_to "Sign In", new_user_session_path %></li>
+        <li><a href="/pages/about">About</a></li>
       <% end %>
-         <li><a href="/pages/about">About</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

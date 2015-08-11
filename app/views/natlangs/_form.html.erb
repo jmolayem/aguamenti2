@@ -1,0 +1,30 @@
+<%= form_for(@natlang) do |f| %>
+  <% if @natlang.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@natlang.errors.count, "error") %> prohibited this natlang from being saved:</h2>
+
+      <ul>
+      <% @natlang.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class CovnetsControllerTest < ActionController::TestCase
+class ConvnetsControllerTest < ActionController::TestCase
   setup do
-    @covnet = covnets(:one)
+    @convnet = convnets(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:covnets)
+    assert_not_nil assigns(:convnets)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class CovnetsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create covnet" do
-    assert_difference('Covnet.count') do
-      post :create, covnet: { api: @covnet.api, description: @covnet.description, image: @covnet.image, modelid: @covnet.modelid, name: @covnet.name }
+  test "should create convnet" do
+    assert_difference('Convnet.count') do
+      post :create, convnet: { api: @convnet.api, description: @convnet.description, image: @convnet.image, modelid: @convnet.modelid, name: @convnet.name }
     end
 
-    assert_redirected_to covnet_path(assigns(:covnet))
+    assert_redirected_to convnet_path(assigns(:convnet))
   end
 
-  test "should show covnet" do
-    get :show, id: @covnet
+  test "should show convnet" do
+    get :show, id: @convnet
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @covnet
+    get :edit, id: @convnet
     assert_response :success
   end
 
-  test "should update covnet" do
-    patch :update, id: @covnet, covnet: { api: @covnet.api, description: @covnet.description, image: @covnet.image, modelid: @covnet.modelid, name: @covnet.name }
-    assert_redirected_to covnet_path(assigns(:covnet))
+  test "should update convnet" do
+    patch :update, id: @convnet, convnet: { api: @convnet.api, description: @convnet.description, image: @convnet.image, modelid: @convnet.modelid, name: @convnet.name }
+    assert_redirected_to convnet_path(assigns(:convnet))
   end
 
-  test "should destroy covnet" do
-    assert_difference('Covnet.count', -1) do
-      delete :destroy, id: @covnet
+  test "should destroy convnet" do
+    assert_difference('Convnet.count', -1) do
+      delete :destroy, id: @convnet
     end
 
-    assert_redirected_to covnets_path
+    assert_redirected_to convnets_path
   end
 end

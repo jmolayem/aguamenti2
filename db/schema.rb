@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808223717) do
+ActiveRecord::Schema.define(version: 20150809183833) do
 
   create_table "convnetimages", force: :cascade do |t|
     t.string   "name"
@@ -73,6 +73,13 @@ ActiveRecord::Schema.define(version: 20150808223717) do
     t.integer  "user_id"
     t.string   "api_key"
     t.string   "endpoint"
+  end
+
+  create_table "natlangs", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "nlps", force: :cascade do |t|

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @natlang.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @natlang.description %>
+</p>
+
+<%= link_to 'Edit', edit_natlang_path(@natlang) %> |
+<%= link_to 'Back', natlangs_path %>

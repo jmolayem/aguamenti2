@@ -1,0 +1,2 @@
+module NatlangsHelper
+end

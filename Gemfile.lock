@@ -103,6 +103,7 @@ GEM
     httpauth (0.2.1)
     httpclient (2.6.0.1)
     i18n (0.7.0)
+    ihover-rails (1.0.0)
     intercom-rails (0.2.28)
       activesupport (> 3.0)
     jbuilder (2.3.0)
@@ -272,6 +273,7 @@ DEPENDENCIES
   devise
   figaro
   foundation-rails
+  ihover-rails
   intercom-rails
   jbuilder (~> 2.0)
   jquery-rails

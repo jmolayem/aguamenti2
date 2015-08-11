@@ -9,6 +9,7 @@ gem "paperclip-dropbox", ">=1.1.7"
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
 gem 'searchkick'
+gem "ihover-rails"
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development
 # Use SCSS for stylesheets

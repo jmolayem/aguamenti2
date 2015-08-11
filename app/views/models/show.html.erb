@@ -16,7 +16,7 @@
     <% @model.inputs.each do |input| %>
       <div class="form-group">
         <%= label_tag "model[#{input.name}]", input.name %>
-        <%= input_tag_for_input(input) %>
+        <%= select_for_input(input, class: 'js-select', data: { url: '/data'}) %>
       </div>
     <% end %>
     <div class="form-group">
