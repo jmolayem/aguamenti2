@@ -1,3 +1,6 @@
+<script src="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.js"></script>
+
+<p id="notice"><%= notice %></p>
 <div class="center">
 <%= link_to new_model_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
   <i class="glyphicon glyphicon-plus"></i> New Brain
@@ -6,28 +9,40 @@
 
 <br>
 
-<div class="center">
-<div class="row">
+<div class="container mt40">
+<section class="row">
   <% @models.each do |model| %>
-    <div class="col-md-3">
-      <div class="thumbnail">
-            <%= image_tag model.image.url %>
-        <div class="caption">
-        <h3><%= model.name %></h3>
-        <p><%= model.description %></p>
-          <%= link_to 'Show', model, class: "glyphicon glyphicon-eye-open"%>
-          <%= link_to 'Edit', edit_model_path(model), class: "glyphicon glyphicon-pencil" %>
-          <%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-trash" %>
-        </div>
+    <article class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+            <%= image_tag model.image.url(:medium) %>
+            <div class="panel-footer">
+            <h4><%= model.name %></h4>
+              <%= link_to 'Use', model, class: "btn btn-primary"%>
+              <% if user_signed_in? %>
+              <% if current_user.admin? %>
+              <%= link_to 'Edit', edit_model_path(model), class: "glyphicon glyphicon-pencil" %>
+              <%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-trash" %>
+                <% end %>
+              <% end %>
+                    <span class="pull-right">
+                        <i id="like1" class="glyphicon glyphicon-thumbs-up"></i> <div id="like1-bs3"></div>
+                        <i id="dislike1" class="glyphicon glyphicon-thumbs-down"></i> <div id="dislike1-bs3"></div>
+                    </span>
+          </div>
+        
       </div>
     </div>
+  </article>
   <% end %>
-
+</section>
+</div>
 <br>
 
 <%= will_paginate @models, renderer: BootstrapPagination::Rails  %>
 
 <br>
+</div>
 </br>
 </br>
 </br>

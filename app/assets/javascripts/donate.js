@@ -1,3 +1,4 @@
+<script src="//fast.eager.io/gX88lKai9D.js"></script>
 
 var $form = $('#payment-form');
 $form.on('submit', payWithStripe);

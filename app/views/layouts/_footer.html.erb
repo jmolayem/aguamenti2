@@ -10,9 +10,9 @@
     <% else %>
     	<li><%= link_to "Subscribe", pages_subscribe_path %></li>
     	<li><%= link_to "Donate", pages_donate_path %></li>
-    	<li><%= link_to "Help Us Build", pages_contribute_path %></li>
+    	<li><%= link_to pages_contribute_path do %><i class="glyphicon glyphicon-user"></i>  Sanctioned Contributor</li>
+        <% end %>
   	 <% end %>
     </ul>
   </div>
 </nav>
-
