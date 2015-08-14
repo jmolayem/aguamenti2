@@ -1,6 +1,11 @@
 class ModelsController < ApplicationController
+before_filter :authenticate_user!, only: [:maker, :new, :create, :edit, :update, :destroy]
   def home
   end
+
+def maker
+  @maker = Model.where(user:current_user).order("created_at DESC")
+end
 
 def search
   if params[:search].present?
@@ -12,7 +17,7 @@ end
 
   # GET /models
   def index
-    @models = Model.paginate(:page => params[:page], :per_page => 10)
+    @models = Model.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
   end
 
   # GET /models/1
@@ -35,6 +40,7 @@ end
   # POST /models
   def create
     @model = Model.new(model_params)
+    @model.user_id = current_user.id
     respond_to do |format|
       if @model.save
         format.html { redirect_to models_path }

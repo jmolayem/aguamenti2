@@ -10,7 +10,7 @@
   <% @natlangs.each do |natlang| %>
   <div class="col-md-3">
       <div class="thumbnail">
-        <%= image_tag natlang.image.url %>
+        <%= image_tag natlang.image.url(:medium) %>
         <div class="caption">
         <h3><%= natlang.name %></h3>
           <%= link_to 'Use', natlang, class: "btn btn-primary"%>

@@ -9,6 +9,8 @@ Govmind::Application.routes.draw do
 
   get 'results/index'
 
+  get 'maker' => "models#maker"
+
   devise_for :users
   resources :models do
     collection do
