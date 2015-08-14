@@ -81,7 +81,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def convnetimage_params
-      params.require(:convnetimage).permit(:name, :api, :modelid, :description)
+      params.require(:convnetimage).permit(:name, :api, :modelid, :description, :zip_images)
     end
     #Below function may not be necessary. this function below simply mashed our inputs and outputs together for acceptable format with Azure.
     def result_params
