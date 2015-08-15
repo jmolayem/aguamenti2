@@ -17,7 +17,6 @@ end
   # GET /convnetimages/1
   # GET /convnetimages/1.json
   def show
-    @convnetimages = current_user.results.where(convnetimage: convnetimage)
   end
 
   # GET /convnetimages/new
@@ -34,9 +33,11 @@ end
   # POST /convnetimages.json
   def create
     @convnetimage = Convnetimage.new(convnetimage_params)
+    @convnetimage.user = current_user
 
     respond_to do |format|
       if @convnetimage.save
+        DeepLearningWorker.perform_async(:post, @convnetimage.id)
         format.html { redirect_to @convnetimage, notice: 'Convnetimage was successfully created.' }
       else
         flash[:errors] = @convnetimage
@@ -66,22 +67,15 @@ end
     end
   end
 
-  def generate_result
-    deeplearningWorker.perform_async(result_params, model.id, current_user.id)
-    respond_to do |format|
-      format.html { redirect_to model_path(model), notice: 'Wait while the result is being processed...' }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_convnetimage
-      @convnetimage = Convnetimage.find(params[:id])
+      @convnetimage = current_user.convnetimages.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def convnetimage_params
-      params.require(:convnetimage).permit(:name, :api, :modelid, :description, :zip_images)
+      params.require(:convnetimage).permit(:name, :api, :description, :zip_image, :iterations)
     end
     #Below function may not be necessary. this function below simply mashed our inputs and outputs together for acceptable format with Azure.
     def result_params

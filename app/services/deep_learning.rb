@@ -1,25 +1,40 @@
-# MachineLearning.create_post(api_key, endpoint, {Empl: '10181', Project: '103531', Hours: '0'})
 class DeepLearning
+  ENDPOINT = "http://api.ersatzlabs.com/api/predict/"
 
-  def self.create_post(api, payload)
-    new(api, payload).create_post
+  def self.post_image(api_key, iterations, file)
+    new(api_key).post_image(iterations, file)
   end
 
-  def initialize(api, payload)
-    @endpoint = "http://api.ersatzlabs.com/api/predict/"
-    @headers = {
-      #Authorization: "Bearer #{api}",
+  def self.get_stats(api_key, model_id)
+    new(api_key).get_stats(model_id)
+  end
+
+  def initialize(api_key)
+    @endpoint = ENDPOINT
+    @api_key = api_key
+  end
+
+  def post_image(iterations, file)
+    RestClient.post(@endpoint, build_payload(iterations, file), headers_for_post)
+  end
+
+  def get_stats(modelid)
+    RestClient.get("#{@endpoint}#{modelid}/?key=#{@api_key}")
+  end
+
+  private
+
+  def headers_for_post
+    {
       accept: :json
     }
-  
-    @payload = {
-      'key' => 'd6f6aa8719125ae791686c3510168e06047a4704',
-      'file-0' => File.new('test.png')
-    }
   end
 
-  def create_post
-  	binding.pry
-    RestClient.post @endpoint, @payload, @headers
+  def build_payload(iterations, file)
+    {
+      'iterations' => iterations,
+      'key' => @api_key,
+      'file-0' => file
+    }
   end
 end

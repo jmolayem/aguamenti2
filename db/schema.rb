@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814192645) do
+ActiveRecord::Schema.define(version: 20150815195506) do
 
   create_table "convnetimages", force: :cascade do |t|
     t.string   "name"
@@ -24,7 +24,12 @@ ActiveRecord::Schema.define(version: 20150814192645) do
     t.string   "zip_image_content_type"
     t.integer  "zip_image_file_size"
     t.datetime "zip_image_updated_at"
+    t.string   "iterations"
+    t.integer  "user_id"
+    t.string   "response"
   end
+
+  add_index "convnetimages", ["user_id"], name: "index_convnetimages_on_user_id"
 
   create_table "covnets", force: :cascade do |t|
     t.string   "name"
@@ -238,6 +243,8 @@ ActiveRecord::Schema.define(version: 20150814192645) do
     t.datetime "confirmation_sent_at"
     t.string   "provider"
     t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

@@ -10,7 +10,7 @@
   <% @convnetimages.each do |convnetimage| %>
   <div class="col-md-3">
       <div class="thumbnail">
-        <%= image_tag convnetimage.image.url %>
+        <%= image_tag convnetimage.zip_image.url %>
         <div class="caption">
         <h3><%= convnetimage.name %></h3>
           <%= link_to 'Use', convnetimage, class: "btn btn-primary"%>

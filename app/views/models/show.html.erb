@@ -15,13 +15,9 @@
 
   <%= form_tag generate_result_model_path(@model) do %>
     <% @model.inputs.each do |input| %>
-  <div class="panel-body">
-  <form class="form form-vertical">
       <div class="form-group">
         <%= label_tag "model[#{input.name}]", input.name %>
-        <%= select_for_input(input, class: 'js-select', data: { url: '/data'}) %>
-        </form>
-</div>
+        <%= input_tag_for_input(input) %>
       </div>
     <% end %>
     <div class="form-group">
@@ -33,9 +29,7 @@
 <div class="row">
   <table class="table">
     <thead>
-      <% @model.inputs.each do |input| %>
-        <th><%= input.name %></th>
-      <% end %>
+
       <% @model.outputs.each do |output| %>
         <th><%= output.name %></th>
       <% end %>
