@@ -1,17 +1,40 @@
-<p id="notice"><%= notice %></p>
-
-<div class="row">
-  <div class="col-md-6">
-    <div class="thumbnail">
-      <%= image_tag @model.image.url(:medium) %>
+<link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">  
+<div class="center">
+<div class="container">
+  <div class="row user-menu-container square">
+    <div class="col-md-7 user-details">
+      <div class="row coralbg white">
+        <div class="col-md-6 no-pad">
+          <div class="user-pad">
+            <h3><%= @model.name %></h3>
+            <h4 class="white"><i class="fa fa-check-circle-o"></i><%= "Algorithm: #{@model.algorithm}" %></h4>
+            <h4 class="white"><i class="fa fa-twitter"></i><%= "Organization: #{@model.organization}" %></h4>
+          </div>
+        </div>
+        <div class="col-md-6 no-pad">
+          <div class="user-image">
+            <%= image_tag @model.image.url(:medium) %>
+          </div>
+        </div>
+      </div>
+      <div class ="row overview">
+        <div class="col-md-4 user-pad text-center">
+          <h3>DATASET SIZE</h3>
+          <h4><%="#{@model.size}K rows" %></h4>
+        </div>
+      <div class="col-md-4 user-pad text-center">
+        <h3>ACCURACY/COD</h3>
+        <h4><%="#{@model.accuracy}%" %></h4>
+      </div>
+      <div class="col-md-4 user-pad text-center">
+        <h3>CREATED BY</h3>
+        <h4><%="#{@model.user.name}" %></h4>
     </div>
   </div>
-  <div class="col-md-6">
-    <h3><%= @model.name %></h3>
-    <p><%= @model.description %></p>
-    <p><%= "Thought by #{@model.user.name}" %></p>
   </div>
-  </div>
+</div>
+</div>
+</div>
 
   <%= form_tag generate_result_model_path(@model) do %>
     <% @model.inputs.each do |input| %>
@@ -47,7 +70,7 @@
 </div>
 
 <div class="center">
-  <div class="fb-comments" data-href="http://localhost:3000/models" data-width="600" data-numposts="5"></div>
+  <div class="fb-comments" data-href="http://localhost:3000/models#{model.id}" data-width="600" data-numposts="5"></div>
 </div>
 <%= link_to 'Back', models_path, class: "btn btn-primary" %>
           <% if user_signed_in? %>

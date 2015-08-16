@@ -9,7 +9,7 @@ function payWithStripe(e) {
     /* Visual feedback */
     $form.find('[type=submit]').html('Validating <i class="fa fa-spinner fa-pulse"></i>');
 
-    var PublishableKey = 'pk_test_6pRNASCoBOKtIshFeQd4XMUh'; // Replace with your API publishable key
+    var PublishableKey = "stripe-key"; // Replace with your API publishable key
     Stripe.setPublishableKey(PublishableKey);
     
     /* Create token */

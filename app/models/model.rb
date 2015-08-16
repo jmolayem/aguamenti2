@@ -22,7 +22,7 @@ class Model < ActiveRecord::Base
       :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
       :path => ":style/:id_:filename"
   end
-  validates :name, :description, :api_key, presence: true
+  validates :name, :description, :accuracy, :algorithm, :organization, :api_key, :size, presence: true
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
 end

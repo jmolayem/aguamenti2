@@ -24,7 +24,24 @@
 
   <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description, class: "form-control", :placeholder => "tell us what you are modelling, the government agency you are helping, the algorithm you used, and your accuracy"%>
+    <%= f.text_area :description, class: "form-control", :placeholder => "tell us what you are modelling"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :accuracy %>
+    <%= f.text_area :accuracy, class: "form-control", :placeholder => "Express accuracy or coefficient of determination as percent"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :algorithm %>
+    <%= f.text_area :algorithm, class: "form-control", :placeholder => "What was the best algorithm you used?"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :size %>
+    <%= f.text_area :size, class: "form-control", :placeholder => "In thousands, how many rows is your dataset?"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :organization %>
+    <%= f.text_area :organization, class: "form-control", :placeholder => "what organization are you helping?"%>
   </div>
 
   <div class="form-group">

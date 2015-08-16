@@ -37,7 +37,7 @@
   <% end %>
       <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
-        <li><%= link_to "Analytics", models_path %></li> 
+        <li><%= link_to "Analytics", models_path, :"data-no-turbolink"=>true %></li> 
         <li><%= link_to "Image Recognition", convnetimages_path %></li> 
         <li><%= link_to "Language Processing", natlangs_path %></li> 
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
