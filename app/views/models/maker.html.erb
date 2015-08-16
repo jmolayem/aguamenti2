@@ -1,43 +1,33 @@
-<script src="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.js"></script>
+<table class="table table-striped table-bordered">
+  <tr>
+    <th class="center">Image</th>
+    <th class="center">Name</th>
+    <th class="center">Description</th>
+    <th class="center">Action</th>
+</tr>
 
-<p id="notice"><%= notice %></p>
-<div class="center">
-<%= link_to new_model_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
-  <i class="glyphicon glyphicon-plus"></i> New Brain
-<% end %>
-</div>
-
-<br>
-
-<div class="center">
-<div class="row">
   <% @models.each do |model| %>
-  <div class="col-md-3">
-      <div class="thumbnail">
-            <%= image_tag model.image.url(:medium) %>
-            <div class="caption">
-            <h4><%= model.name %></h4>
-              <%= link_to 'Use', model, class: "btn btn-primary"%>
-              <% if user_signed_in? %>
-              <% if current_user.admin? %>
-              <%= link_to 'Edit', edit_model_path(model), class: "glyphicon glyphicon-pencil" %>
-              <%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-trash" %>
-                <% end %>
-              <% end %>
-          </div>
-        
-</div>
-    </div>
-
-  <% end %>
-</div>
-</div>
+<tr>
+            <td><%= image_tag model.image.url(:thumb) %></td>
+            <td><%= model.name %></td>
+            <td><%= model.description %></td>
+            <td>
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Action <span class="caret"></span>
+                </button>
+              <ul class="dropdown-menu" role="menu">
+              <li><%= link_to 'Use', model%></li>
+              <li><%= link_to 'Edit', edit_model_path(model), class: "glyphicon glyphicon-pencil" %></li>
+             <li><%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-trash" %></li>
+           </ul>
+         </div>
+              </td>
+            </tr>
+            <% end %>
+          </table>
 <br>
 
-<%= will_paginate @models, renderer: BootstrapPagination::Rails  %>
-
-<br>
-</div>
-</br>
-</br>
-</br>
+<% if user_signed_in? %>
+  <%= link_to 'New Mode;', new_model_path, class: "btn btn-link" %>
+<% end %>

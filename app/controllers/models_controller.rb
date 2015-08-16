@@ -4,7 +4,7 @@ before_filter :authenticate_user!, only: [:maker, :new, :create, :edit, :update,
   end
 
 def maker
-  @maker = Model.where(user:current_user).order("created_at DESC")
+  @models = Model.where(user:current_user).order("created_at DESC")
 end
 
 def search
