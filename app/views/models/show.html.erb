@@ -2,7 +2,7 @@
 <div class="center">
 <div class="container">
   <div class="row user-menu-container square">
-    <div class="col-md-7 user-details">
+    <div class="col-md-14 user-details">
       <div class="row coralbg white">
         <div class="col-md-6 no-pad">
           <div class="user-pad">
@@ -19,7 +19,7 @@
       </div>
       <div class ="row overview">
         <div class="col-md-4 user-pad text-center">
-          <h3>DATASET SIZE</h3>
+          <h3>Training Data</h3>
           <h4><%="#{@model.size}K rows" %></h4>
         </div>
       <div class="col-md-4 user-pad text-center">
@@ -36,6 +36,9 @@
 </div>
 </div>
 
+<form class="container">
+  <div class="row">
+    <div class="col-md-3">
   <%= form_tag generate_result_model_path(@model) do %>
     <% @model.inputs.each do |input| %>
       <div class="form-group">
@@ -43,10 +46,14 @@
         <%= input_tag_for_input(input) %>
       </div>
     <% end %>
+      </div>
+  </div>
+  </form>
     <div class="form-group">
       <%= submit_tag 'fire neurons', class: "btn btn-primary" %>
     </div>
   <% end %>
+
 
 
 <div class="row">

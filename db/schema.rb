@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816032542) do
+ActiveRecord::Schema.define(version: 20150816195706) do
 
   create_table "convnetimages", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20150816032542) do
     t.string   "iterations"
     t.integer  "user_id"
     t.string   "response"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
+    t.integer  "size"
+    t.integer  "accuracy"
   end
 
   add_index "convnetimages", ["user_id"], name: "index_convnetimages_on_user_id"

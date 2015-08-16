@@ -13,26 +13,40 @@
 <% end %>
 
   <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :cover %>
+    <%= f.file_field :cover, class: "form-control", :placeholder => "cover image" %>
   </div>
-  <div class="field">
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control", :placeholder => "name of model" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class: "form-control", :placeholder => "tell us what you are modelling" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :size %><br>
+    <%= f.text_area :size, class: "form-control", :placeholder => "In thousands, how many images are in your training data?" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :accuracy %><br>
+    <%= f.text_area :accuracy, class: "form-control", :placeholder => "Express accuracy as a percent" %>
+  </div>
+  <div class="form-group">
     <%= f.label :api %><br>
-    <%= f.text_field :api %>
+    <%= f.text_field :api, class: "form-control", :placeholder => "API from Ersatz Labs" %>
   </div>
   <div class="field">
     <%= f.label :iterations %><br>
-    <%= f.text_field :iterations %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_field :iterations, class: "form-control", :placeholder => "iterations acquired from API GET request" %>
   </div>
   <div class="form-group">
     <%= f.label :zip_image %>
     <%= f.file_field :zip_image, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.button "Connect Neuron", class: "btn btn-success", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Firing Neuron..."} %>
   </div>
+</br>
+</br>
 <% end %>

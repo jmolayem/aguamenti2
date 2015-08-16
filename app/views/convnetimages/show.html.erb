@@ -1,27 +1,58 @@
-<p id="notice"><%= notice %></p>
+<link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">  
+<div class="center">
+<div class="container">
+  <div class="row user-menu-container square">
+    <div class="col-md-14 user-details">
+      <div class="row coralbg white">
+        <div class="col-md-6 no-pad">
+          <div class="user-pad">
+            <h3><%= @convnetimage.name %></h3>
+            <h4 class="white"><i class="fa fa-check-circle-o"></i><%= "Algorithm: #{@convnetimage.algorithm}" %></h4>
+          </div>
+        </div>
+        <div class="col-md-6 no-pad">
+          <div class="user-image">
+            <%= image_tag @convnetimage.image.url(:medium) %>
+          </div>
+        </div>
+      </div>
+      <div class ="row overview">
+        <div class="col-md-4 user-pad text-center">
+          <h3>TRAINING DATA</h3>
+          <h4><%="#{@convnetimage.size}K images" %></h4>
+        </div>
+      <div class="col-md-4 user-pad text-center">
+        <h3>ACCURACY</h3>
+        <h4><%="#{@convnetimage.accuracy}%" %></h4>
+      </div>
+      <div class="col-md-4 user-pad text-center">
+        <h3>CREATED BY</h3>
+        <h4><%="#{@convnetimage.user.name}" %></h4>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+  <%= form_tag generate_label_convnetimage_path(@convnetimage) do %>
+    <% @model.inputs.each do |input| %>
+      <div class="form-group">
+        <%= label_tag "model[#{input.name}]", input.name %>
+        <%= input_tag_for_input(input) %>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= submit_tag 'fire neurons', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<div class="center">
+  <div class="fb-comments" data-href="http://localhost:3000/models#{model.id}" data-width="600" data-numposts="5"></div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @convnetimage.name %>
-</p>
-
-<p>
-  <strong>Api:</strong>
-  <%= @convnetimage.api %>
-</p>
-
-<p>
-  <strong>Modelid:</strong>
-  <%= @convnetimage.modelid %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @convnetimage.description %>
-</p>
-
-<p>
-	<
-
-<%= link_to 'Edit', edit_convnetimage_path(@convnetimage) %> |
 <%= link_to 'Back', convnetimages_path %>
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
+<%= link_to 'Edit', edit_convnetimage_path(@convnetimage) %> |
+<% end %>
+          <% end %>
+

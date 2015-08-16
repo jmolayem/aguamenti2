@@ -10,7 +10,7 @@ class Convnetimage < ActiveRecord::Base
       :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
       :path => ":style/:id_:filename"
   end
-  validates :name, :description, :api, :iterations, :zip_image, presence: true
+  validates :cover,:name, :description,:size,:accuracy, :api, :iterations, :zip_image, presence: true
   validates_attachment_content_type :zip_image, :content_type => /\A(application\/zip|image\/.*)\Z/
 
   def state
