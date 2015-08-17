@@ -7,4 +7,5 @@ class Natlang < ActiveRecord::Base
       :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
       :path => ":style/:id_:filename"
   end
+  validates :api_key,:classifier_id,:accuracy, :size,:organization, presence: true
 end

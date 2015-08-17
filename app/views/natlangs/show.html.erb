@@ -1,14 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @natlang.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @natlang.description %>
-</p>
+<link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">  
+<div class="center">
+<div class="container">
+  <div class="row user-menu-container square">
+    <div class="col-md-14 user-details">
+      <div class="row coralbg white">
+        <div class="col-md-6 no-pad">
+          <div class="user-pad">
+          	<h3><%= @natlang.name %></h3>
+            <h4 class="white"><i class="fa fa-twitter"></i><%= "Organization: #{@natlang.organization}" %></h4>
+          </div>
+        </div>
+        <div class="col-md-6 no-pad">
+          <div class="user-image">
+            <%= image_tag @natlang.image.url(:medium) %>
+          </div>
+        </div>
+      </div>
+      <div class ="row overview">
+        <div class="col-md-4 user-pad text-center">
+          <h3>Training Data</h3>
+          <h4><%="#{@natlang.size}K rows" %></h4>
+        </div>
+      <div class="col-md-4 user-pad text-center">
+        <h3>ACCURACY</h3>
+        <h4><%="#{@natlang.accuracy}%" %></h4>
+      </div>
+      <div class="col-md-4 user-pad text-center">
+        <h3>CREATED BY</h3>
+        <h4><%="#{@natlang.user.name}" %></h4>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
 
 <%= link_to 'Edit', edit_natlang_path(@natlang) %> |
 <%= link_to 'Back', natlangs_path %>
