@@ -4,12 +4,12 @@
     <% if user_signed_in? %>
     	<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
         <li><%= link_to "Manage Models", maker_path %></li> 
-    	<li><%= link_to "Donate", pages_donate_path %></li>
+    	
         <li><%= link_to "Legal", pages_legal_path %></li>
     	<li><%= link_to "Help Us Build", pages_contribute_path %></li>
     <% else %>
     	<li><%= link_to "Subscribe", pages_subscribe_path %></li>
-    	<li><%= link_to "Donate", pages_donate_path %></li>
+    	
         <li><%= link_to "Legal", pages_legal_path %></li>
     	<li><%= link_to pages_contribute_path do %><i class="glyphicon glyphicon-github"></i>  Sanctioned Contributor</li>
         <% end %>
