@@ -29,5 +29,10 @@
 <br>
 
 <% if user_signed_in? %>
-  <%= link_to 'New Mode;', new_model_path, class: "btn btn-link" %>
+<div class="center">
+<%= link_to new_model_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
+  <i class="glyphicon glyphicon-plus"></i> New Brain
+<% end %>
+</div>
+
 <% end %>

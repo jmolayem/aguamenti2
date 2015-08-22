@@ -27,10 +27,9 @@ Govmind::Application.routes.draw do
     collection do
       get 'search'
     end
-    member do
-      post :generate_result
-    end
   end
+
+  resources :convnetimage_results, only: [:create]
 
   resources :data, only: [:index] 
 

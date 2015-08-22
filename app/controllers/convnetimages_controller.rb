@@ -17,6 +17,7 @@ end
   # GET /convnetimages/1
   # GET /convnetimages/1.json
   def show
+    @convnetimage_result = ConvnetimageResult.new
   end
 
   # GET /convnetimages/new
@@ -26,7 +27,6 @@ end
 
   # GET /convnetimages/1/edit
   def edit
-    convnetimage
   end
 
   # POST /convnetimages
@@ -37,7 +37,6 @@ end
 
     respond_to do |format|
       if @convnetimage.save
-        DeepLearningWorker.perform_async(:post, @convnetimage.id)
         format.html { redirect_to @convnetimage, notice: 'Convnetimage was successfully created.' }
       else
         flash[:errors] = @convnetimage

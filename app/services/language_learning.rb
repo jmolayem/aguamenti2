@@ -2,7 +2,7 @@ class LanguageLearning
   ENDPOINT = "https://www.metamind.io/language/classify"
 
   def self.post_language(api_key, file)
-    new(api_key).post_language(iterations, file)
+    new(api_key).post_language(file)
   end
 
   def initialize(api_key)

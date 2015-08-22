@@ -7,12 +7,11 @@
         <div class="col-md-6 no-pad">
           <div class="user-pad">
             <h3><%= @convnetimage.name %></h3>
-            <h4 class="white"><i class="fa fa-check-circle-o"></i><%= "Algorithm: #{@convnetimage.algorithm}" %></h4>
           </div>
         </div>
         <div class="col-md-6 no-pad">
           <div class="user-image">
-            <%= image_tag @convnetimage.image.url(:medium) %>
+            <%= image_tag @convnetimage.cover.url(:medium) %>
           </div>
         </div>
       </div>
@@ -34,17 +33,22 @@
 </div>
 </div>
 </div>
-  <%= form_tag generate_label_convnetimage_path(@convnetimage) do %>
-    <% @model.inputs.each do |input| %>
-      <div class="form-group">
-        <%= label_tag "model[#{input.name}]", input.name %>
-        <%= input_tag_for_input(input) %>
-      </div>
-    <% end %>
-    <div class="form-group">
-      <%= submit_tag 'fire neurons', class: "btn btn-primary" %>
-    </div>
+<table class="table">
+  <% @convnetimage.convnetimage_results.each do |convnetimage_result| %>
+    <tr>
+      <td><%= convnetimage_result.response_id %></td>
+      <td><%= convnetimage_result.state %></td>
+      <td><%= convnetimage_result.labels.join(', ') %></td>
+   </tr>
   <% end %>
+</table>
+<%= form_for @convnetimage_result do |f| %>
+  <%= f.hidden_field :convnetimage_id, value: @convnetimage.id %>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+
+  <%= f.button %>
+<% end %>
 <div class="center">
   <div class="fb-comments" data-href="http://localhost:3000/models#{model.id}" data-width="600" data-numposts="5"></div>
 </div>

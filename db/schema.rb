@@ -11,22 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817015833) do
+ActiveRecord::Schema.define(version: 20150822185841) do
+
+  create_table "convnetimage_results", force: :cascade do |t|
+    t.string   "response"
+    t.integer  "convnetimage_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "convnetimage_results", ["convnetimage_id"], name: "index_convnetimage_results_on_convnetimage_id"
 
   create_table "convnetimages", force: :cascade do |t|
     t.string   "name"
     t.string   "api"
     t.string   "modelid"
     t.text     "description"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "zip_image_file_name"
-    t.string   "zip_image_content_type"
-    t.integer  "zip_image_file_size"
-    t.datetime "zip_image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "iterations"
     t.integer  "user_id"
-    t.string   "response"
     t.string   "cover_file_name"
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
