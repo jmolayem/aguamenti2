@@ -45,13 +45,19 @@
 <%= form_for @convnetimage_result do |f| %>
   <%= f.hidden_field :convnetimage_id, value: @convnetimage.id %>
   <%= f.label :image %>
-  <%= f.file_field :image %>
+  <%= f.file_field :image, class: "form-control" %>
 
-  <%= f.button %>
+  <div class="form-group">
+    <%= submit_tag 'fire neurons', class: "btn btn-primary" %>
+  </div>
 <% end %>
 <div class="center">
   <div class="fb-comments" data-href="http://localhost:3000/models#{model.id}" data-width="600" data-numposts="5"></div>
 </div>
+
+</br>
+</br>
+</br>
 
 <%= link_to 'Back', convnetimages_path %>
           <% if user_signed_in? %>
