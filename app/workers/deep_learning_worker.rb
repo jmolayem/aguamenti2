@@ -9,7 +9,7 @@ class DeepLearningWorker
     logger.info "Operation: #{operation}"
     case operation
     when /\Apost\Z/
-      file = open convnetimage_result.image.path
+      file = open convnetimage_result.image.url
       response = DeepLearning.post_image(convnetimage.api, convnetimage.iterations, file)
       logger.info "Successfully posted image: #{response}"
 

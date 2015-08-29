@@ -14,14 +14,7 @@ class Model < ActiveRecord::Base
   belongs_to :user
   accepts_nested_attributes_for :inputs, :outputs, reject_if: :all_blank, allow_destroy: true
 
-  if Rails.env.development?
-    has_attached_file :image, :styles => { :medium => "200x>", :thumb => "100x100>" }, :default_url => "cmon.png"
-  else
-    has_attached_file :image, :styles => { :medium => "200x>", :thumb => "100x100>" }, :default_url => "cmon.png",
-      :storage => :dropbox,
-      :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
-      :path => ":style/:id_:filename"
-  end
+  has_attached_file :image, :styles => { :medium => "200x>", :thumb => "100x100>" }, :default_url => "cmon.png"
   validates :name, :description, :accuracy, :algorithm, :organization, :api_key, :size, presence: true
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 

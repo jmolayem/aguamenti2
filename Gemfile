@@ -34,6 +34,7 @@ gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'omniauth-facebook', '1.4.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "paperclip", "~> 4.2"
+gem 'aws-sdk','~> 1.6'
 gem 'figaro'
 gem 'sdoc', '~> 0.4.0', group: :doc
 

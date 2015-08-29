@@ -8,11 +8,14 @@
 <div class="center">
 <div class="row">
   <% @natlangs.each do |natlang| %>
-  <div class="col-md-3">
-      <div class="thumbnail">
+   <div class="col-md-3 col-sm-4 col-xs-12">
+    <div class="panel panel-primary text-center">
+      <div class="panel-body">
         <%= image_tag natlang.image.url(:medium) %>
-        <div class="caption">
-        <h3><%= natlang.name %></h3>
+        <div class="panel-footer">
+        <h4><%= natlang.name %>
+        <span class="label label-default"><%= convnetimage.size %></span>
+        <span class="label label-success"><%= convnetimage.accuracy %></span></h4>
           <%= link_to 'Use', natlang, class: "btn btn-primary"%>
           <% if user_signed_in? %>
             <% if current_user.admin? %>
@@ -23,6 +26,13 @@
         </div>
       </div>
     </div>
+    </div>
   <% end %>
-
+    </div>
+    </div>
 <br>
+<%= will_paginate @models, renderer: BootstrapPagination::Rails  %>
+<br>
+</br>
+</br>
+</br>
