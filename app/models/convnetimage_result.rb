@@ -1,9 +1,10 @@
 class ConvnetimageResult < ActiveRecord::Base
   belongs_to :convnetimage
+  belongs_to :user
 
   has_attached_file :image, :styles => { :medium => "200x>", :thumb => "100x100>" }, :default_url => "cmon.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
-  validates :convnetimage, :image, presence: true
+  validates :convnetimage, :image, :user, presence: true
 
   def state
     response["state"] || "NOT SENT YET"

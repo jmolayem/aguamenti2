@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
                   :uniqueness => { :case_sensitive => false }
    has_many :models, dependent: :destroy
    has_many :results, dependent: :destroy
-   has_many :convnetimages, dependent: :destroy
+   has_many :convnetimages
+   has_many :convnetimage_results, dependent: :destroy
 
    def self.from_omniauth(auth)
   #where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

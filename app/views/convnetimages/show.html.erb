@@ -41,7 +41,7 @@
       <th>Result</th>
     </tr>
   </thead>
-  <% @convnetimage.convnetimage_results.each do |convnetimage_result| %>
+  <% @convnetimage_results.each do |convnetimage_result| %>
     <tr>
       <td><%= convnetimage_result.response_id %></td>
       <td><%= convnetimage_result.state %></td>
@@ -49,7 +49,7 @@
    </tr>
   <% end %>
 </table>
-<%= form_for @convnetimage_result do |f| %>
+<%= form_for @new_convnetimage_result do |f| %>
   <%= f.hidden_field :convnetimage_id, value: @convnetimage.id %>
   <%= f.label :image %>
   <%= f.file_field :image, class: "form-control" %>

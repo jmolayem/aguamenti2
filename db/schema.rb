@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822185841) do
+ActiveRecord::Schema.define(version: 20150829192333) do
 
   create_table "convnetimage_results", force: :cascade do |t|
     t.string   "response"
@@ -22,9 +22,11 @@ ActiveRecord::Schema.define(version: 20150822185841) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "user_id"
   end
 
   add_index "convnetimage_results", ["convnetimage_id"], name: "index_convnetimage_results_on_convnetimage_id"
+  add_index "convnetimage_results", ["user_id"], name: "index_convnetimage_results_on_user_id"
 
   create_table "convnetimages", force: :cascade do |t|
     t.string   "name"

@@ -2,13 +2,14 @@ class ConvnetimagesController < ApplicationController
   before_action :set_convnetimage, only: [:show, :edit, :update, :destroy]
 
 #incorporated search to our scaffold
-def search
-  if params[:search].present?
-    @convnets = Convnetimage.search(params[:search])
-  else
-    @convnets = Convnetimage.all
+  def search
+    if params[:search].present?
+      @convnets = Convnetimage.search(params[:search])
+    else
+      @convnets = Convnetimage.all
+    end
   end
-end
+
   # GET /convnetimages
    def index
     @convnetimages = Convnetimage.paginate(:page => params[:page], :per_page => 10)
@@ -17,7 +18,8 @@ end
   # GET /convnetimages/1
   # GET /convnetimages/1.json
   def show
-    @convnetimage_result = ConvnetimageResult.new
+    @convnetimage_results = @convnetimage.convnetimage_results.where(user: current_user)
+    @new_convnetimage_result = ConvnetimageResult.new
   end
 
   # GET /convnetimages/new
@@ -69,7 +71,7 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_convnetimage
-      @convnetimage = current_user.convnetimages.find(params[:id])
+      @convnetimage = Convnetimage.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
