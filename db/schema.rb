@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150829194411) do
+ActiveRecord::Schema.define(version: 20150829230938) do
 
   create_table "convnetimage_results", force: :cascade do |t|
     t.string   "response"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20150829194411) do
     t.string   "api"
     t.string   "modelid"
     t.text     "description"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "iterations"
     t.integer  "user_id"
     t.string   "cover_file_name"
@@ -43,6 +43,10 @@ ActiveRecord::Schema.define(version: 20150829194411) do
     t.datetime "cover_updated_at"
     t.integer  "size"
     t.integer  "accuracy"
+    t.string   "dataset_file_name"
+    t.string   "dataset_content_type"
+    t.integer  "dataset_file_size"
+    t.datetime "dataset_updated_at"
   end
 
   add_index "convnetimages", ["user_id"], name: "index_convnetimages_on_user_id"
