@@ -40,6 +40,7 @@ Rails.application.configure do
 
 #required for devise gem
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :letter_opener
   config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {

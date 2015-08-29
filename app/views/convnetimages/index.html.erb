@@ -14,8 +14,8 @@
         <%= image_tag convnetimage.cover.url(:medium) %>
         <div class="panel-footer">
         <h4><%= convnetimage.name %>
-        <span class="label label-default"><%= convnetimage.size %></span>
-        <span class="label label-success"><%= convnetimage.accuracy %></span></h4>
+        <span class="label label-default"><%= convnetimage.size %>K images</span>
+        <span class="label label-success"><%= convnetimage.accuracy %>%</span></h4>
           <%= link_to 'Use', convnetimage, class: "btn btn-primary"%>
           <% if user_signed_in? %>
             <% if current_user.admin? %>
