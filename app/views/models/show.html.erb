@@ -8,6 +8,7 @@
         <div class="col-md-6 no-pad">
           <div class="user-pad">
             <h3><%= @model.name %></h3>
+            <%= link_to 'Download dataset', @model.dataset.url, class:"btn btn-primary"%>
             <h4 class="white"><i class="fa fa-check-circle-o"></i><%= "Algorithm: #{@model.algorithm}" %></h4>
             <h4 class="white"><i class="fa fa-twitter"></i><%= "Organization: #{@model.organization}" %></h4>
           </div>

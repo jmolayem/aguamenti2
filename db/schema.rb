@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150829230938) do
+ActiveRecord::Schema.define(version: 20150830000929) do
 
   create_table "convnetimage_results", force: :cascade do |t|
     t.string   "response"
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20150829230938) do
     t.string   "category"
     t.string   "city"
     t.string   "organization"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -80,13 +80,17 @@ ActiveRecord::Schema.define(version: 20150829230938) do
     t.integer  "accuracy"
     t.string   "algorithm"
     t.integer  "size"
+    t.string   "dataset_file_name"
+    t.string   "dataset_content_type"
+    t.integer  "dataset_file_size"
+    t.datetime "dataset_updated_at"
   end
 
   create_table "natlangs", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -97,6 +101,10 @@ ActiveRecord::Schema.define(version: 20150829230938) do
     t.integer  "size"
     t.string   "organization"
     t.integer  "user_id"
+    t.string   "dataset_file_name"
+    t.string   "dataset_content_type"
+    t.integer  "dataset_file_size"
+    t.datetime "dataset_updated_at"
   end
 
   create_table "outputs", force: :cascade do |t|
