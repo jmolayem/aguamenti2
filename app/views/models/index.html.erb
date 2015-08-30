@@ -17,8 +17,8 @@
             </div>
             <div class="panel-footer">
             <h4><%= model.name %> 
-            <span class="label label-default"><%= model.size %></span>
-            <span class="label label-success"><%= model.accuracy %></span></h4>
+            <span class="label label-default"><%= model.size %>K rows</span>
+            <span class="label label-success"><%= model.accuracy %>%</span></h4>
               <%= link_to 'Use', model, class: "btn btn-primary", :"data-no-turbolink" => true %>
               <% if user_signed_in? %>
               <% if current_user.admin? %>
