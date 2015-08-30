@@ -10,6 +10,8 @@ class NatlangsController < ApplicationController
   # GET /natlangs/1
   # GET /natlangs/1.json
   def show
+    @natlang_results = @natlang.natlang_results.where(user: current_user)
+    @natlang_result = NatlangResult.new
   end
 
   # GET /natlangs/new

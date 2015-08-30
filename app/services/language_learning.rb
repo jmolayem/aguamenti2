@@ -10,6 +10,9 @@ class LanguageLearning
     @api_key = api_key
   end
 
+  def post_text
+    RestClient.post(@endpoint, @payload, @headers).slice(:id)
+  end
   private
 
   def headers_for_post

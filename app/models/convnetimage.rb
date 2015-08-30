@@ -1,5 +1,18 @@
 class Convnetimage < ActiveRecord::Base
 
+  include ManaPotion::Pool
+
+  mana_pool_for :user, limit:10, period: 1.hour
+
+  end
+  user = User.create!
+  user.models.create! # No problem here
+  user.models.create! # Raises an ActiveRecord::RecordInvalid exception
+
+  require 'timecop'
+  Timecop.travel 1.day.from_now
+  user.models.create! # No problem here
+
   belongs_to :user
   has_many :convnetimage_results
 

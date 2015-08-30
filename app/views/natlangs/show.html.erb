@@ -36,25 +36,8 @@
 </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <%= form_tag generate_result_model_path(@model) do %>
-        <% @model.inputs.each do |input| %>
-          <div class="form-group">
-            <%= label_tag "model[#{input.name}]", input.name %>
-            <%= input_tag_for_input(input) %>
-          </div>
-        <% end %>
-        <div class="form-group">
-          <%= submit_tag 'fire neurons', class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
 <%= form_for @natlang_result do |f| %>
+  <%= f.hidden_field :classifier_id, value: @natlang.id %>
   <%= f.label :textput %>
   <%= f.text_area :textput, class: "form-control" %>
   <div class="form-group">

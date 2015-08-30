@@ -7,7 +7,20 @@ class Model < ActiveRecord::Base
   algoliasearch do
 
   end
+  include ManaPotion::Pool
+  belongs_to :user
 
+  mana_pool_for :user, limit:10, period: 1.hour
+
+  end
+  user = User.create!
+  user.models.create! # No problem here
+  user.models.create! # Raises an ActiveRecord::RecordInvalid exception
+
+  require 'timecop'
+  Timecop.travel 1.day.from_now
+  user.models.create! # No problem here
+  
   has_many :inputs
   has_many :outputs
   has_many :results
