@@ -14,3 +14,11 @@ class Convnetimage < ActiveRecord::Base
   validates_attachment_content_type :dataset, :content_type => /\Aapplication\/zip\Z/
   validates_attachment_size :dataset, :less_than => 100.megabytes
 end
+#GETTING ERROR WITH MANAPOOL GEM
+#user = User.create!
+#user.posts.create! # No problem here
+#user.posts.create! # Raises an ActiveRecord::RecordInvalid exception
+
+#require 'timecop'
+#Timecop.travel 1.day.from_now
+#user.posts.create! # No problem here

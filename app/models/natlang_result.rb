@@ -1,8 +1,8 @@
-class ConvnetimageResult < ActiveRecord::Base
+class NatlangResult < ActiveRecord::Base
   include ManaPotion::Pool
   LIMIT = 10
   PERIOD = 1.day
-  belongs_to :convnetimage
+  belongs_to :natlang
   belongs_to :user
 
   mana_pool_for :user, limit: LIMIT, period: PERIOD

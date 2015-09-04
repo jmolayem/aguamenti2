@@ -20,11 +20,13 @@ class ConvnetimagesController < ApplicationController
   def show
     @convnetimage_results = @convnetimage.convnetimage_results.where(user: current_user)
     @new_convnetimage_result = ConvnetimageResult.new
+    @convnet_usages_left = ManaPotion::CheckUsage.new(ConvnetimageResult.new, current_user, Result::LIMIT, Result::PERIOD).remaining
   end
 
   # GET /convnetimages/new
   def new
     @convnetimage = Convnetimage.new
+    authorize @convnetimage
   end
 
   # GET /convnetimages/1/edit

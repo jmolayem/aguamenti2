@@ -28,7 +28,7 @@
       </div>
       <div class="col-md-4 user-pad text-center">
         <h3>CREATED BY</h3>
-        <h4><%="#{@natlang.user.name}" %></h4>
+        <h4><%="natlang.user.name}" %></h4>
     </div>
   </div>
   </div>
@@ -37,6 +37,7 @@
 </div>
 
 <%= form_for @natlang_result do |f| %>
+  <%= f.hidden_field :classifier_id, value: @natlang.id %>
   <%= f.hidden_field :classifier_id, value: @natlang.id %>
   <%= f.label :textput %>
   <%= f.text_area :textput, class: "form-control" %>

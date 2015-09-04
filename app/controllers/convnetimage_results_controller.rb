@@ -4,6 +4,7 @@ class ConvnetimageResultsController < ApplicationController
 		@convnetimage_result.user = current_user
 		if @convnetimage_result.save
         	DeepLearningWorker.perform_async(:post, @convnetimage_result.id)
+			flash[:notice] = 'Wait while the result is being processed...' 
 		else
 			flash[:errors] = @convnetimage_result
 		end
