@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
    has_many :results, dependent: :destroy
    has_many :convnetimages
    has_many :convnetimage_results, dependent: :destroy
+   has_and_belongs_to_many :granted_models, class_name: 'Model', join_table: 'granted_models_users'
 
    def self.from_omniauth(auth)
   #where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

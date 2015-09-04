@@ -1,18 +1,18 @@
 # MachineLearning.create_post(api_key, endpoint, {Empl: '10181', Project: '103531', Hours: '0'})
 class MachineLearning
 
-  def self.create_post(api_key, endpoint, result_params)
-    new(api_key, endpoint, result_params).create_post
+  def self.create_post(api_key, endpoint, request_params)
+    new(api_key, endpoint, request_params).create_post
   end
 
-  def initialize(api_key, endpoint, result_params)
+  def initialize(api_key, endpoint, request_params)
     @headers = {
       Authorization: "Bearer #{api_key}",
       content_type: :json,
       accept: :json
     }
 
-    @result_params = result_params
+    @request_params = request_params
     @endpoint = endpoint
 
     @default_body = {
@@ -26,14 +26,14 @@ class MachineLearning
   end
 
   def create_post
-    RestClient.post @endpoint, result_params.to_json, @headers
+    RestClient.post @endpoint, request_params.to_json, @headers
   end
 
   private
 
-    def result_params
+    def request_params
       result = @default_body.dup
-      @result_params.each do |column, value|
+      @request_params.each do |column, value|
         result[:Inputs][:input1][:ColumnNames] << column
         result[:Inputs][:input1][:Values][0] << value
         result[:Inputs][:input1][:Values][1] << ''

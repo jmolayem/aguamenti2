@@ -23,11 +23,13 @@ end
   # GET /models/1
   def show
     @results = current_user.results.where(model: model)
+    @usages_left = ManaPotion::CheckUsage.new(Result.new, current_user, Result::LIMIT, Result::PERIOD).remaining 
   end
 
   # GET /models/new
   def new
     @model = Model.new
+    authorize @model
     @model.inputs.build
     @model.outputs.build
   end
@@ -78,10 +80,14 @@ end
   end
 
   def generate_result
-    MachineLearningWorker.perform_async(result_params, model.id, current_user.id)
-    respond_to do |format|
-      format.html { redirect_to model_path(model), notice: 'Wait while the result is being processed...' }
+    @result = Result.new(user: current_user, model: model)
+    if @result.save
+      MachineLearningWorker.perform_async(@result.id, request)
+      flash[:notice] = 'Wait while the result is being processed...' 
+    else
+      flash[:errors] = @result.errors
     end
+    redirect_to model_path(model)
   end
 
   private
@@ -96,7 +102,7 @@ end
                                     outputs_attributes: [:id, :name, :kind, :order, :default_value, :_destroy])
     end
 
-    def result_params
+    def request_params
       inputs = params.require(:model).permit(model.inputs.map(&:name))
       model.outputs.reduce(inputs) do |hash, output|
         hash.merge(output.name => output.default_value)

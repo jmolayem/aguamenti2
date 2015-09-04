@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830000929) do
+ActiveRecord::Schema.define(version: 20150904200441) do
 
   create_table "convnetimage_results", force: :cascade do |t|
     t.string   "response"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20150830000929) do
   end
 
   add_index "convnetimages", ["user_id"], name: "index_convnetimages_on_user_id"
+
+  create_table "granted_models_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "model_id"
+  end
+
+  add_index "granted_models_users", ["model_id"], name: "index_granted_models_users_on_model_id"
+  add_index "granted_models_users", ["user_id"], name: "index_granted_models_users_on_user_id"
 
   create_table "inputs", force: :cascade do |t|
     t.string   "name"

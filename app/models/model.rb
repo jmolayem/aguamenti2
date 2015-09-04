@@ -7,24 +7,12 @@ class Model < ActiveRecord::Base
   algoliasearch do
 
   end
-  include ManaPotion::Pool
-  belongs_to :user
-
-  mana_pool_for :user, limit:10, period: 1.hour
-
-  end
-  user = User.create!
-  user.models.create! # No problem here
-  user.models.create! # Raises an ActiveRecord::RecordInvalid exception
-
-  require 'timecop'
-  Timecop.travel 1.day.from_now
-  user.models.create! # No problem here
   
   has_many :inputs
   has_many :outputs
   has_many :results
   belongs_to :user
+  has_and_belongs_to_many :granted_users, class_name: 'User', join_table: 'granted_models_users'
   accepts_nested_attributes_for :inputs, :outputs, reject_if: :all_blank, allow_destroy: true
 
   has_attached_file :image, :styles => { :medium => "200x>", :thumb => "100x100>" }, :default_url => "cmon.png"
@@ -35,3 +23,10 @@ class Model < ActiveRecord::Base
   validates_attachment_content_type :dataset, :content_type => ['application/csv','application/xlsx','application/xls'], :message => ',Only excel and csv files are allowed.'
   validates_attachment_size :dataset, :less_than => 25.megabytes
 end
+#GETTING ERROR W/ Manapool Gem
+#user = User.create!
+##user.posts.create! # Raises an ActiveRecord::RecordInvalid exception
+
+#require 'timecop'
+#Timecop.travel 1.day.from_now
+#user.posts.create! # No problem here

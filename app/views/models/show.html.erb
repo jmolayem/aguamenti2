@@ -41,7 +41,20 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
+      <p>Usages left: <%= @usages_left %></p>
       <%= form_tag generate_result_model_path(@model) do %>
+          <% if flash[:errors].try(:any?) %>
+          <div id="error_explanation" class="alert alert-danger alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h2><%= pluralize(flash[:errors].keys.count, "error") %> prohibited this model from being saved:</h2>
+
+          <ul>
+          <% flash[:errors].each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+    <% end %>
         <% @model.inputs.each do |input| %>
           <div class="form-group">
             <%= label_tag "model[#{input.name}]", input.name %>
