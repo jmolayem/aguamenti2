@@ -5,6 +5,7 @@ class Convnetimage < ActiveRecord::Base
   mana_pool_for :user, limit:10, period: 1.hour
 
   belongs_to :user
+  has_and_belongs_to_many :granted_users, class_name: 'User', join_table: 'granted_convnetimages_users'
   has_many :convnetimage_results
 
   has_attached_file :cover, :styles => { :medium => "200x>", :thumb => "100x100>" }, :default_url => "cmon.png"
