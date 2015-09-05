@@ -26,6 +26,10 @@ end
     @usages_left = ManaPotion::CheckUsage.new(Result.new, current_user, Result::LIMIT, Result::PERIOD).remaining 
   end
 
+  def ask
+    model
+  end
+
   # GET /models/new
   def new
     @model = Model.new

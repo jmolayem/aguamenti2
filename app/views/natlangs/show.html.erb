@@ -41,6 +41,7 @@
   <%= f.hidden_field :classifier_id, value: @natlang.id %>
   <%= f.label :textput %>
   <%= f.text_area :textput, class: "form-control" %>
+  <input type="text" x-webkit-speech />
   <div class="form-group">
     <%= submit_tag 'fire neurons', class: "btn btn-primary" %>
   </div>
