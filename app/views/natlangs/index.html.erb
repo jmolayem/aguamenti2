@@ -18,7 +18,9 @@
         <span class="label label-success"><%= natlang.accuracy %>%</span></h4>
         <%= link_to new_model_path, class: "btn btn-info", data: { no_turbolink: true } do %><i class="glyphicon glyphicon-plus"></i> Request Telepathy
           <% end %>
+          <% if policy(natlang).show? %>
           <%= link_to 'Use', natlang, class: "btn btn-primary"%>
+          <% end %>
           <% if user_signed_in? %>
             <% if current_user.admin? %>
           <%= link_to 'Edit', edit_natlang_path(natlang), class: "glyphicon glyphicon-pencil" %>

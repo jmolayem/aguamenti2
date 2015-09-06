@@ -75,11 +75,8 @@
 <table class="table table-striped table-bordered table-condensed table-hover">
     <thead>
     <tr class="success">
-      <% @model.inputs.each do |input| %>
-        <th><%= input.name %></th>
       <% @model.outputs.each do |output| %>
         <th><%= output.name %></th>
-      <% end %>
       <% end %>
     </tr>
     </thead>
