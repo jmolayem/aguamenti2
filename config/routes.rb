@@ -1,5 +1,5 @@
 Govmind::Application.routes.draw do
-
+  resources :activities
   resources :natlangs
   get 'pages/donate'
 

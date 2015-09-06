@@ -37,16 +37,20 @@
   <% end %>
       <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
+              <li><%= link_to "Newsfeed", activities_path %></li> 
                         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brains<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Analytics", models_path, :"data-no-turbolink"=>true %></li> 
             <li><%= link_to "Vision", convnetimages_path %></li> 
             <li><%= link_to "Language", natlangs_path %></li>
-            <li><%= link_to "Audio", natlangs_path %></li>
-            <li><%= link_to "Smell", natlangs_path %></li>
+            <li><%= link_to "Audio (Coming Soon)", natlangs_path %></li>
+            <li><%= link_to "Smell (Coming Soon)", natlangs_path %></li>
           </ul>
         </li>
+                                <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
+          <ul class="dropdown-menu">
         <li><%= link_to "Account", maker_path %></li> 
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       <% else %>

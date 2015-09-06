@@ -1,5 +1,7 @@
 class Model < ActiveRecord::Base
   include AlgoliaSearch
+  include PublicActivity::Common
+  #tracked owner: ->(controller, model) { controller && controller.current_user }
 
   after_save :index!
   before_destroy :remove_from_index!

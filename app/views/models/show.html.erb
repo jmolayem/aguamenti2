@@ -56,10 +56,12 @@
         </div>
     <% end %>
         <% @model.inputs.each do |input| %>
-          <div class="form-group">
+          <form class="form-inline">
+            <div class="form-group">
             <%= label_tag "model[#{input.name}]", input.name %>
             <%= input_tag_for_input(input) %>
           </div>
+        </form>
         <% end %>
         <div class="form-group">
           <%= submit_tag 'fire neurons', class: "btn btn-primary" %>

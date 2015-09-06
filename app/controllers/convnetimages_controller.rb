@@ -38,7 +38,7 @@ class ConvnetimagesController < ApplicationController
   def create
     @convnetimage = Convnetimage.new(convnetimage_params)
     @convnetimage.user = current_user
-
+    @convnetimage.create_activity :create, owner: current_user
     respond_to do |format|
       if @convnetimage.save
         format.html { redirect_to @convnetimage, notice: 'Convnetimage was successfully created.' }

@@ -49,6 +49,7 @@ end
     @model.user_id = current_user.id
     respond_to do |format|
       if @model.save
+        @model.create_activity :create, owner: current_user
         format.html { redirect_to models_path }
       else
         flash[:errors] = @model.errors
@@ -68,6 +69,7 @@ end
   def update
     respond_to do |format|
       if model.update(model_params)
+        @model.update_activity :create, owner: current_user
         format.html { redirect_to @model, notice: 'Model was successfully updated.' }
       else
         format.html { render :edit }
@@ -78,6 +80,7 @@ end
   # DELETE /models/1
   def destroy
     model.destroy
+    @model.create_activity :destroy, owner: current_user
     respond_to do |format|
       format.html { redirect_to models_url, notice: 'Model was successfully destroyed.' }
     end

@@ -30,6 +30,7 @@ class NatlangsController < ApplicationController
 
     respond_to do |format|
       if @natlang.save
+        @natlang.create_activity :create, owner: current_user
         format.html { redirect_to @natlang, notice: 'Natlang was successfully created.' }
         format.json { render :show, status: :created, location: @natlang }
       else
