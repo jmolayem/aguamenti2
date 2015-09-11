@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
    has_many :results, dependent: :destroy
    has_many :convnetimages
    has_many :convnetimage_results, dependent: :destroy
+   has_many :natlang_results, dependent: :destroy
    has_and_belongs_to_many :granted_models, class_name: 'Model', join_table: 'granted_models_users'
    has_and_belongs_to_many :granted_convnetimages, class_name: 'Convnetimage', join_table: 'granted_convnetimages_users'
    has_and_belongs_to_many :granted_natlangs, class_name: 'Natlang', join_table: 'granted_natlangs_users'

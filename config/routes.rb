@@ -1,6 +1,7 @@
 Govmind::Application.routes.draw do
   resources :activities
   resources :natlangs
+  resources :natlang_results
   get 'pages/donate'
 
   get 'pages/legal'

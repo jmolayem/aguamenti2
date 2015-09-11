@@ -37,18 +37,33 @@
 </div>
 
 <%= form_for @natlang_result do |f| %>
-  <%= f.hidden_field :classifier_id, value: @natlang.id %>
-  <%= f.hidden_field :classifier_id, value: @natlang.id %>
-  <%= f.label :textput %>
-  <%= f.text_area :textput, class: "form-control" %>
-  <input type="text" x-webkit-speech />
+  <%= f.hidden_field :natlang_id, value: @natlang.id %>
+  <%= f.label :value %>
+  <%= f.text_area :value, class: "form-control" %>
+  <!--input type="text" x-webkit-speech /-->
   <div class="form-group">
     <%= submit_tag 'fire neurons', class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<table class="table table-striped table-bordered table-condensed table-hover">
+  <thead>
+    <tr class="success">
+      <th>Value</th>
+      <th>Completed</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <% @natlang_results.each do |natlang_result| %>
+    <tr>
+      <td><%= natlang_result.value %></td>
+      <td><%= natlang_result.completed? %></td>
+      <td><%= natlang_result.response['predictions'] %></td>
+   </tr>
+  <% end %>
+</table>
+
 <%= link_to 'Back', natlangs_path %>
-          <% if user_signed_in? %>
-            <% if current_user.admin? %>
-<%= link_to 'Edit', edit_natlang_path(@natlang) %>
+<% if current_user.admin? %>
+  <%= link_to 'Edit', edit_natlang_path(@natlang) %>
 <% end %>
-          <% end %> 

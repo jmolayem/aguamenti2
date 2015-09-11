@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906191911) do
+ActiveRecord::Schema.define(version: 20150911191704) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 20150906191911) do
   add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
   add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
+
+  create_table "authorizations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "convnetimage_results", force: :cascade do |t|
     t.string   "response"
@@ -68,6 +73,15 @@ ActiveRecord::Schema.define(version: 20150906191911) do
 
   add_index "convnetimages", ["user_id"], name: "index_convnetimages_on_user_id"
 
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.string   "create"
+    t.string   "destroy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "granted_convnetimages_users", force: :cascade do |t|
     t.integer "user_id"
     t.integer "convnetimage_id"
@@ -103,6 +117,16 @@ ActiveRecord::Schema.define(version: 20150906191911) do
 
   add_index "inputs", ["model_id"], name: "index_inputs_on_model_id"
 
+  create_table "invitations", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.string   "recipient_email"
+    t.string   "token"
+    t.datetime "sent_at"
+    t.string   "new"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "models", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -127,6 +151,18 @@ ActiveRecord::Schema.define(version: 20150906191911) do
     t.datetime "dataset_updated_at"
   end
 
+  create_table "natlang_results", force: :cascade do |t|
+    t.integer  "natlang_id"
+    t.integer  "user_id"
+    t.string   "value"
+    t.string   "response"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "natlang_results", ["natlang_id"], name: "index_natlang_results_on_natlang_id"
+  add_index "natlang_results", ["user_id"], name: "index_natlang_results_on_user_id"
+
   create_table "natlangs", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -136,8 +172,7 @@ ActiveRecord::Schema.define(version: 20150906191911) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "api_key"
-    t.string   "classifier_id"
+    t.integer  "classifier_id"
     t.integer  "accuracy"
     t.integer  "size"
     t.string   "organization"
@@ -188,6 +223,8 @@ ActiveRecord::Schema.define(version: 20150906191911) do
     t.boolean  "admin",                  default: false
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.integer  "invitation_id"
+    t.integer  "invitation_limit"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
