@@ -1,42 +1,46 @@
-<div id="dracarys">
 <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">  
-<div class="center">
-<div class="container">
-  <div class="row user-menu-container square">
-    <div class="col-md-14 user-details">
-      <div class="row coralbg white">
-        <div class="col-md-6 no-pad">
-          <div class="user-pad">
-            <h3><%= @model.name %></h3>
-            <%= link_to 'Download dataset', @model.dataset.url, class:"btn btn-primary"%>
-            <h4 class="white"><i class="fa fa-check-circle-o"></i><%= "Algorithm: #{@model.algorithm}" %></h4>
-            <h4 class="white"><i class="fa fa-twitter"></i><%= "Organization: #{@model.organization}" %></h4>
-          </div>
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading"><%= @model.name %></h2>
+                    <hr class="primary">
+                </div>
+            </div>
         </div>
-        <div class="col-md-6 no-pad">
-          <div class="user-image">
-            <%= image_tag @model.image.url(:medium) %>
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
+                        <h3>Dataset Size</h3>
+                        <h4><%="#{@model.size}K rows" %></h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <h3>Organization</h3>
+                        <h4><%= "#{@model.organization}" %></h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <h3>Accuracy</h3>
+                        <h4><%="#{@model.accuracy}%" %></h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <h3>Download the Dataset</h3>
+                        <%= link_to 'Download dataset', @model.dataset.url, class:"btn btn-primary"%>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class ="row overview">
-        <div class="col-md-4 user-pad text-center">
-          <h3>Training Data</h3>
-          <h4><%="#{@model.size}K rows" %></h4>
-        </div>
-      <div class="col-md-4 user-pad text-center">
-        <h3>ACCURACY/COD</h3>
-        <h4><%="#{@model.accuracy}%" %></h4>
-      </div>
-      <div class="col-md-4 user-pad text-center">
-        <h3>CREATED BY</h3>
-        <h4><%="#{@model.user.name}" %></h4>
-    </div>
-  </div>
-  </div>
-</div>
-</div>
-</div>
+    </section>
 
 <div class="container">
   <div class="row">
@@ -112,4 +116,4 @@
 </br>
 </br>
 </br>
-</div>
+

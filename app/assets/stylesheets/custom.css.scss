@@ -2,10 +2,6 @@
 @import "bootstrap";
 
 .jumbotron {
-	background-color: #333333;
-	background-position: center;
-	height: 500px;
-	margin: 0px;
 	  h1 {
     color: #fff;
     text-shadow: 0px 2px 3px #555;
@@ -36,16 +32,6 @@
     box-shadow: 1000;
 }
 
-.row {
-	padding-top: 10px;
-	h2{
-	text-shadow: none;
-	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	font-weight: normal;
-	color: #333333
-	}
-}
 
 
 .widewrapper {
@@ -66,8 +52,6 @@ body {
   color: black;
 }
 
-
-body { padding-top: 80px}
 
 
 .navbar-default {
