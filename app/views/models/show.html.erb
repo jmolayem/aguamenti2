@@ -34,8 +34,9 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                        <h3>Download the Dataset</h3>
-                        <%= link_to 'Download dataset', @model.dataset.url, class:"btn btn-primary"%>
+                        <h3>Understand the Dataset</h3>
+                        <%= link_to 'Dataset Snippet', @model.snippet.url, class:"btn btn-primary"%>
+                        <%= link_to 'Full dataset', @model.dataset.url, class:"btn btn-primary"%>
                     </div>
                 </div>
             </div>
