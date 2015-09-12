@@ -1,4 +1,5 @@
 Govmind::Application.routes.draw do
+  resources :datagalleries
   resources :activities
   get '/users/:id', :to=>'users#show',:as=>:user
   resources :natlangs
@@ -32,6 +33,12 @@ Govmind::Application.routes.draw do
   end
 
   resources :convnetimage_results, only: [:create]
+
+  resources :datagalleries do
+    collection do
+      get 'search'
+    end
+  end
 
   resources :data, only: [:index] 
 

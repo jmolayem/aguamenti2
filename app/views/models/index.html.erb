@@ -27,7 +27,7 @@
 
 <p id="notice"><%= notice %></p>
 <div class="center">
-<% if policy(Model.new).new? %>
+<% if current_user.admin? %>
 <%= link_to new_model_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
   <i class="glyphicon glyphicon-plus"></i> New Brain
 <% end %>
@@ -47,11 +47,7 @@
             <h4><%= model.name %> 
             <span class="label label-default"><%= model.size %>K rows</span>
             <span class="label label-success"><%= model.accuracy %>%</span></h4>
-              <%= link_to new_model_path, class: "btn btn-info", data: { no_turbolink: true } do %><i class="glyphicon glyphicon-plus"></i> Request Telepathy
-              <% end %>
-              <% if policy(model).show? %>
                 <%= link_to 'Use', model, class: "btn btn-primary", :"data-no-turbolink" => true %>
-              <% end %>
               <% if user_signed_in? %>
               <% if current_user.admin? %>
               <%= link_to 'Edit', edit_model_path(model), class: "glyphicon glyphicon-pencil" %>

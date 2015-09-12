@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @datagallery.name %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @datagallery.organization %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @datagallery.size %>
+</p>
+
+<%= link_to 'Edit', edit_datagallery_path(@datagallery) %> |
+<%= link_to 'Back', datagalleries_path %>

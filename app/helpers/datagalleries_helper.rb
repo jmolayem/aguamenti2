@@ -1,0 +1,2 @@
+module DatagalleriesHelper
+end

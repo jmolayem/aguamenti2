@@ -16,11 +16,7 @@
         <h4><%= convnetimage.name %>
         <span class="label label-default"><%= convnetimage.size %>K images</span>
         <span class="label label-success"><%= convnetimage.accuracy %>%</span></h4>
-        <%= link_to new_model_path, class: "btn btn-info", data: { no_turbolink: true } do %><i class="glyphicon glyphicon-plus"></i> Request Telepathy
-          <% end %>
-          <% if policy(convnetimage).show? %>
           <%= link_to 'Use', convnetimage, class: "btn btn-primary"%>
-          <% end %>
           <% if user_signed_in? %>
             <% if current_user.admin? %>
           <%= link_to 'Edit', edit_convnetimage_path(convnetimage), class: "glyphicon glyphicon-pencil" %>

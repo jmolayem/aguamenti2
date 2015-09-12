@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912191038) do
+ActiveRecord::Schema.define(version: 20150912202022) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -76,6 +76,22 @@ ActiveRecord::Schema.define(version: 20150912191038) do
   end
 
   add_index "convnetimages", ["user_id"], name: "index_convnetimages_on_user_id"
+
+  create_table "datagalleries", force: :cascade do |t|
+    t.string   "name"
+    t.string   "organization"
+    t.integer  "size"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "dataset_file_name"
+    t.string   "dataset_content_type"
+    t.integer  "dataset_file_size"
+    t.datetime "dataset_updated_at"
+    t.string   "snippet_file_name"
+    t.string   "snippet_content_type"
+    t.integer  "snippet_file_size"
+    t.datetime "snippet_updated_at"
+  end
 
   create_table "friendships", force: :cascade do |t|
     t.integer  "user_id"

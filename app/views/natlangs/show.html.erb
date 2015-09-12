@@ -12,31 +12,31 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
+                        <i class="fa fa-4x fa-database wow bounceIn text-primary"></i>
                         <h3>Dataset Size</h3>
                         <h4><%="#{@natlang.size}K rows" %></h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <i class="fa fa-4x fa-university wow bounceIn text-primary" data-wow-delay=".1s"></i>
                         <h3>Organization</h3>
                         <h4><%= "#{@natlang.organization}" %></h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <i class="fa fa-4x fa-bullseye wow bounceIn text-primary" data-wow-delay=".2s"></i>
                         <h3>Accuracy</h3>
                         <h4><%="#{@natlang.accuracy}%" %></h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <i class="fa fa-4x fa-download wow bounceIn text-primary" data-wow-delay=".3s"></i>
                         <h3>Understand the Dataset</h3>
-                        <%= link_to 'Dataset Snippet', @natlang.snippet.url, class:"btn btn-primary"%>
-                        <%= link_to 'Full dataset', @natlang.dataset.url, class:"btn btn-primary"%>
+                        <%= link_to 'Preview', @natlang.snippet.url, class:"btn btn-primary"%>
+                        <%= link_to 'Full', @natlang.dataset.url, class:"btn btn-primary"%>
                     </div>
                 </div>
             </div>
