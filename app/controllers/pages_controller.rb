@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  layout 'theme'
   def about
   end
 

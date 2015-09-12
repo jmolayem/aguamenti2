@@ -15,4 +15,9 @@
 //= require bootstrap
 //= require turbolinks
 //= require cocoon
+//= require theme/jquery.fittext
+//= require theme/jquery.easing.min
+//= require theme/classie
+//= require theme/cbpAnimatedHeader
+//= require theme/wow.min
 //= require_tree .

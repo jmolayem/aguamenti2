@@ -1,5 +1,6 @@
 Govmind::Application.routes.draw do
   resources :activities
+  get '/users/:id', :to=>'users#show',:as=>:user
   resources :natlangs
   resources :natlang_results
   get 'pages/donate'
