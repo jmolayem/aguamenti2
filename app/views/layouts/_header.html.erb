@@ -77,6 +77,18 @@
         </div>
 
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <% if user_signed_in? %>
+        <ul class="nav navbar-nav">
+                <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Batch Predict<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Analytics (coming soon)</a></li>
+            <li><a href="#">Vision (coming soon)</a></li>
+            <li><a href="#">Language (coming soon)</a></li>
+          </ul>
+        </li>
+      </ul>
+      <% end %>
 <ul class="nav navbar-nav">
        <div class="fb-like" data-href="https://govmind.herokuapp.com/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false">
 </ul>
@@ -97,8 +109,6 @@
             <li><%= link_to "Analytics", models_path, :"data-no-turbolink"=>true %></li> 
             <li><%= link_to "Vision", convnetimages_path %></li> 
             <li><%= link_to "Language", natlangs_path %></li>
-            <li><%= link_to "Audio (Coming Soon)", natlangs_path %></li>
-            <li><%= link_to "Smell (Coming Soon)", natlangs_path %></li>
           </ul>
         </li>
                                 <li class="dropdown">
@@ -109,7 +119,6 @@
       <% else %>
         <li><%= link_to "Sign Up", new_user_registration_path %></li>
         <li><%= link_to "Sign In", new_user_session_path %></li>
-        <li><a href="/pages/about">About</a></li>
       <% end %>
       </ul>
     </div>
