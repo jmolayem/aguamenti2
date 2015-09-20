@@ -40,7 +40,7 @@ end
 
   # GET /models/1/edit
   def edit
-    model
+    authorize model
   end
 
   # POST /models

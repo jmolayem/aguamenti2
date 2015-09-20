@@ -16,4 +16,8 @@ class ModelPolicy
 	def show?
 		user && (user.admin? || user.granted_models.find_by(id: model))
 	end
+
+	def edit?
+		user.admin?
+	end
 end
