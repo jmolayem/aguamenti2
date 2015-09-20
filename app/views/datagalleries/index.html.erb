@@ -10,8 +10,8 @@
 <tr>
             <td><%= datagallery.name %></td>
             <td><%= datagallery.organization %></td>
-            <td><%= link_to 'Dataset Snippet', @datagallery.snippet.url, class:"btn btn-primary"%></td>
-            <td><%= link_to 'Full dataset', @datagallery.dataset.url, class:"btn btn-primary"%></td>
+            <td><%= link_to 'Dataset Snippet', datagallery.snippet.url, class:"btn btn-primary"%></td>
+            <td><%= link_to 'Full dataset', datagallery.dataset.url, class:"btn btn-primary"%></td>
             <td>
               <div class="btn-group">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
