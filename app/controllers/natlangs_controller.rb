@@ -4,7 +4,7 @@ class NatlangsController < ApplicationController
   # GET /natlangs
   # GET /natlangs.json
   def index
-    @natlangs = Natlang.all
+    @natlangs = Natlang.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
   end
 
   # GET /natlangs/1
@@ -30,7 +30,6 @@ class NatlangsController < ApplicationController
 
     respond_to do |format|
       if @natlang.save
-        @natlang.create_activity :create, owner: current_user
         format.html { redirect_to @natlang, notice: 'Natlang was successfully created.' }
         format.json { render :show, status: :created, location: @natlang }
       else

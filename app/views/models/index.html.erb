@@ -1,3 +1,20 @@
+
+<aside class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                            <br>
+<br>
+<br>
+                <h2 class="section-heading">"I like to use time inputing data into excel" - no one, ever</h2>
+                <hr class="light">
+                <p class="text-faded">Image recognition is about to get super intelligent. It has the potential to move beyond classifying simple objects. For example, AI that can detect "aging pavement" from an image is quite doable with today's technology. But, in the future, we will be able to take the same image and tell the pavement is likely aging because "X" causes. </p>
+                <a href="users/sign_up" class="btn btn-default btn-xl">Learn More</a>
+            </div>
+        </div>
+    </div>
+</aside>
+
 <p id="notice"><%= notice %></p>
 <div class="center">
 <% if current_user.admin? %>
@@ -15,7 +32,6 @@
       <div class="panel panel-primary text-center">
         <div class="panel-body">
             <%= image_tag model.image.url(:medium) %>
-            </div>
             <div class="panel-footer">
             <h4><%= model.name %> 
             <span class="label label-default"><%= model.size %>K rows</span>
@@ -30,14 +46,14 @@
           </div>
 </div>
 </div>
-
+</div>
   <% end %>
 </div>
 </div>
 <br>
-
+<div class="container">
 <%= will_paginate @models, renderer: BootstrapPagination::Rails  %>
-
+</div>
 <br>
 </br>
 </br>

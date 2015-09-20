@@ -12,7 +12,7 @@ class ConvnetimagesController < ApplicationController
 
   # GET /convnetimages
    def index
-    @convnetimages = Convnetimage.paginate(:page => params[:page], :per_page => 10)
+    @convnetimages = Convnetimage.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
   end
 
   # GET /convnetimages/1
@@ -40,7 +40,6 @@ class ConvnetimagesController < ApplicationController
     @convnetimage.user = current_user
     respond_to do |format|
       if @convnetimage.save
-        @convnetimage.create_activity :create, owner: current_user
         format.html { redirect_to @convnetimage, notice: 'Convnetimage was successfully created.' }
       else
         flash[:errors] = @convnetimage

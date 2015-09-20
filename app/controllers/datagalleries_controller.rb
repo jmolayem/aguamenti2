@@ -3,8 +3,8 @@ class DatagalleriesController < ApplicationController
 
   # GET /datagalleries
   # GET /datagalleries.json
-  def index
-    @datagalleries = Datagallery.all
+    def index
+    @datagalleries = Datagallery.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
   end
 
   # GET /datagalleries/1
@@ -28,7 +28,6 @@ class DatagalleriesController < ApplicationController
 
     respond_to do |format|
       if @datagallery.save
-        @datagallery.create_activity :create, owner: current_user
         format.html { redirect_to @datagallery, notice: 'Datagallery was successfully created.' }
         format.json { render :show, status: :created, location: @datagallery }
       else
@@ -43,7 +42,6 @@ class DatagalleriesController < ApplicationController
   def update
     respond_to do |format|
       if @datagallery.update(datagallery_params)
-        @datagallery.update_activity :create, owner: current_user
         format.html { redirect_to @datagallery, notice: 'Datagallery was successfully updated.' }
         format.json { render :show, status: :ok, location: @datagallery }
       else
@@ -57,7 +55,6 @@ class DatagalleriesController < ApplicationController
   # DELETE /datagalleries/1.json
   def destroy
     @datagallery.destroy
-    @datagallery.create_activity :destroy, owner: current_user
     respond_to do |format|
       format.html { redirect_to datagalleries_url, notice: 'Datagallery was successfully destroyed.' }
       format.json { head :no_content }
