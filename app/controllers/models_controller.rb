@@ -33,19 +33,19 @@ end
   # GET /models/new
   def new
     @model = Model.new
-    authorize @model
+    #authorize @model
     @model.inputs.build
     @model.outputs.build
   end
 
   # GET /models/1/edit
   def edit
-    authorize model
+    #authorize model
   end
 
   # POST /models
   def create
-    authorize @model
+    #authorize @model
     @model = Model.new(model_params)
     @model.user_id = current_user.id
     respond_to do |format|
@@ -78,7 +78,7 @@ end
 
   # DELETE /models/1
   def destroy
-    authorize @model
+    #authorize @model
     model.destroy
     respond_to do |format|
       format.html { redirect_to models_url, notice: 'Model was successfully destroyed.' }

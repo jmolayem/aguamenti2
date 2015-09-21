@@ -12,7 +12,7 @@ class ConvnetimagesController < ApplicationController
 
   # GET /convnetimages
    def index
-    authorize @convnetimage
+    #authorize @convnetimage
     @convnetimages = Convnetimage.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
   end
 
@@ -27,18 +27,18 @@ class ConvnetimagesController < ApplicationController
   # GET /convnetimages/new
   def new
     @convnetimage = Convnetimage.new
-    authorize @convnetimage
+    #authorize @convnetimage
   end
 
   # GET /convnetimages/1/edit
   def edit
-    authorize @convnetimage
+    #authorize @convnetimage
   end
 
   # POST /convnetimages
   # POST /convnetimages.json
   def create
-    authorize @convnetimage
+    #authorize @convnetimage
     @convnetimage = Convnetimage.new(convnetimage_params)
     @convnetimage.user = current_user
     respond_to do |format|
@@ -54,7 +54,7 @@ class ConvnetimagesController < ApplicationController
   # PATCH/PUT /convnetimages/1
   # PATCH/PUT /convnetimages/1.json
   def update
-    authorize @convnetimage
+    #authorize @convnetimage
     respond_to do |format|
       if @convnetimage.update(convnetimage_params)
         format.html { redirect_to @convnetimage, notice: 'Convnetimage was successfully updated.' }
@@ -67,7 +67,7 @@ class ConvnetimagesController < ApplicationController
   # DELETE /convnetimages/1
   # DELETE /convnetimages/1.json
   def destroy
-    authorize @convnetimage
+    #authorize @convnetimage
     @convnetimage.destroy
     respond_to do |format|
       format.html { redirect_to convnetimages_url, notice: 'Convnetimage was successfully destroyed.' }
