@@ -2,7 +2,7 @@ class Convnetimage < ActiveRecord::Base
   include PublicActivity::Common
   include ManaPotion::Pool
 
-  mana_pool_for :user, limit:10, period: 1.hour
+  mana_pool_for :user, limit:10, period: 10.hour
 
   belongs_to :user
   has_and_belongs_to_many :granted_users, class_name: 'User', join_table: 'granted_convnetimages_users'

@@ -36,7 +36,7 @@
         <h4><%= natlang.name %>
         <span class="label label-default"><%= natlang.size %>K expressions</span>
         <span class="label label-success"><%= natlang.accuracy %>%</span></h4>
-          <%= link_to 'Use', natlang, class: "btn btn-primary"%>
+        <%= link_to 'Use', natlang, class: "btn btn-primary", :"data-no-turbolink" => true %>
           <% if user_signed_in? %>
             <% if current_user.admin? %>
           <%= link_to 'Edit', edit_natlang_path(natlang), class: "glyphicon glyphicon-pencil" %>

@@ -6,10 +6,14 @@ class ModelPolicy
 	end
 
 	def new?
-		user && user.admin?
+		user.admin?
 	end
 
 	def create?
+		user.admin?
+	end
+
+	def destroy?
 		user.admin?
 	end
 

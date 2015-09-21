@@ -6,14 +6,26 @@ class ConvnetimagePolicy
 	end
 
 	def new?
-		user && user.admin?
+		user.admin?
 	end
 
 	def create?
 		user.admin?
 	end
 
+	def destroy?
+		user.admin?
+	end
+
 	def show?
 		user && (user.admin? || user.granted_convnetimages.find_by(id: convnetimage))
+	end
+
+	def edit?
+		user.admin?
+	end
+	
+	def update?
+		user.admin?
 	end
 end

@@ -3,7 +3,7 @@ class DatagalleriesController < ApplicationController
 
   # GET /datagalleries
   # GET /datagalleries.json
-    def index
+  def index
     @datagalleries = Datagallery.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
   end
 
@@ -14,16 +14,19 @@ class DatagalleriesController < ApplicationController
 
   # GET /datagalleries/new
   def new
+    authorize @datagallery
     @datagallery = Datagallery.new
   end
 
   # GET /datagalleries/1/edit
   def edit
+    authorize @datagallery
   end
 
   # POST /datagalleries
   # POST /datagalleries.json
   def create
+    authorize @datagallery
     @datagallery = Datagallery.new(datagallery_params)
 
     respond_to do |format|
@@ -40,6 +43,7 @@ class DatagalleriesController < ApplicationController
   # PATCH/PUT /datagalleries/1
   # PATCH/PUT /datagalleries/1.json
   def update
+    authorize @datagallery
     respond_to do |format|
       if @datagallery.update(datagallery_params)
         format.html { redirect_to @datagallery, notice: 'Datagallery was successfully updated.' }
@@ -54,6 +58,7 @@ class DatagalleriesController < ApplicationController
   # DELETE /datagalleries/1
   # DELETE /datagalleries/1.json
   def destroy
+    authorize @datagallery
     @datagallery.destroy
     respond_to do |format|
       format.html { redirect_to datagalleries_url, notice: 'Datagallery was successfully destroyed.' }

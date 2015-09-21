@@ -45,6 +45,7 @@ end
 
   # POST /models
   def create
+    authorize @model
     @model = Model.new(model_params)
     @model.user_id = current_user.id
     respond_to do |format|
@@ -77,6 +78,7 @@ end
 
   # DELETE /models/1
   def destroy
+    authorize @model
     model.destroy
     respond_to do |format|
       format.html { redirect_to models_url, notice: 'Model was successfully destroyed.' }

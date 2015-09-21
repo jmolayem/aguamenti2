@@ -31,11 +31,13 @@ class ConvnetimagesController < ApplicationController
 
   # GET /convnetimages/1/edit
   def edit
+    authorize @convnetimage
   end
 
   # POST /convnetimages
   # POST /convnetimages.json
   def create
+    authorize @convnetimage
     @convnetimage = Convnetimage.new(convnetimage_params)
     @convnetimage.user = current_user
     respond_to do |format|
@@ -51,6 +53,7 @@ class ConvnetimagesController < ApplicationController
   # PATCH/PUT /convnetimages/1
   # PATCH/PUT /convnetimages/1.json
   def update
+    authorize @convnetimage
     respond_to do |format|
       if @convnetimage.update(convnetimage_params)
         format.html { redirect_to @convnetimage, notice: 'Convnetimage was successfully updated.' }
@@ -63,6 +66,7 @@ class ConvnetimagesController < ApplicationController
   # DELETE /convnetimages/1
   # DELETE /convnetimages/1.json
   def destroy
+    authorize @convnetimage
     @convnetimage.destroy
     respond_to do |format|
       format.html { redirect_to convnetimages_url, notice: 'Convnetimage was successfully destroyed.' }

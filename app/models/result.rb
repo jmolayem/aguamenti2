@@ -1,7 +1,7 @@
 class Result < ActiveRecord::Base
   include ManaPotion::Pool
   LIMIT = 1
-  PERIOD = 1.day
+  PERIOD = 10.day
 
   belongs_to :user
   belongs_to :model

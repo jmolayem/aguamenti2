@@ -1,7 +1,7 @@
 class NatlangResult < ActiveRecord::Base
 	include ManaPotion::Pool
   LIMIT = 10
-  PERIOD = 1.day
+  PERIOD = 10.day
 
   mana_pool_for :user, limit: LIMIT, period: PERIOD
   belongs_to :natlang

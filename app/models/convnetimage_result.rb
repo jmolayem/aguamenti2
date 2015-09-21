@@ -1,7 +1,7 @@
 class ConvnetimageResult < ActiveRecord::Base
   include ManaPotion::Pool
   LIMIT = 10
-  PERIOD = 1.day
+  PERIOD = 10.day
   belongs_to :convnetimage
   belongs_to :user
 

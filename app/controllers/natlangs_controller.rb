@@ -12,22 +12,25 @@ class NatlangsController < ApplicationController
   def show
     @natlang_results = @natlang.natlang_results.where(user: current_user)
     @natlang_result = NatlangResult.new
+    @natlang_usages_left = ManaPotion::CheckUsage.new(Result.new, current_user, Result::LIMIT, Result::PERIOD).remaining 
   end
 
   # GET /natlangs/new
   def new
+    authorize @natlang
     @natlang = Natlang.new
   end
 
   # GET /natlangs/1/edit
   def edit
+    authorize @natlang
   end
 
   # POST /natlangs
   # POST /natlangs.json
   def create
     @natlang = Natlang.new(natlang_params)
-
+    authorize @natlang
     respond_to do |format|
       if @natlang.save
         format.html { redirect_to @natlang, notice: 'Natlang was successfully created.' }
@@ -42,6 +45,7 @@ class NatlangsController < ApplicationController
   # PATCH/PUT /natlangs/1
   # PATCH/PUT /natlangs/1.json
   def update
+    authorize @natlang
     respond_to do |format|
       if @natlang.update(natlang_params)
         format.html { redirect_to @natlang, notice: 'Natlang was successfully updated.' }
@@ -56,6 +60,7 @@ class NatlangsController < ApplicationController
   # DELETE /natlangs/1
   # DELETE /natlangs/1.json
   def destroy
+    authorize @natlang
     @natlang.destroy
     respond_to do |format|
       format.html { redirect_to natlangs_url, notice: 'Natlang was successfully destroyed.' }

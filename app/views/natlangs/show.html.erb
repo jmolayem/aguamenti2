@@ -51,7 +51,7 @@
   </div>
   <div class="col-xs-6 col-md-4">
   <h3>Predict</h3>
-      <p>Glucose Level: <%= @usages_left %></p>
+      <p>Glucose Level: <%= @natlang_usages_left %></p>
 <%= form_for @natlang_result do |f| %>
   <%= f.hidden_field :natlang_id, value: @natlang.id %>
   <%= f.label :value %>
