@@ -5,6 +5,10 @@ class ConvnetimagePolicy
 		@convnetimage = convnetimage
 	end
 
+	def index?
+		user?
+	end
+
 	def new?
 		user.admin?
 	end
