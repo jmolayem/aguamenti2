@@ -9,6 +9,13 @@ input {
   color: black;
 }
 
+.alert {
+  position: absolute;
+  z-index: 999;
+  top: 50px;
+  right: 0;
+}
+
 /**
 .jumbotron {
 	  h1 {
