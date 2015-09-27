@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, omniauth_providers: [:facebook]
+         :confirmable, :omniauth_providers => [:facebook]
    validates :name, presence: true
    validates :email, :presence => true,
                   :uniqueness => { :case_sensitive => false }
@@ -16,18 +16,20 @@ class User < ActiveRecord::Base
    has_and_belongs_to_many :granted_convnetimages, class_name: 'Convnetimage', join_table: 'granted_convnetimages_users'
    has_and_belongs_to_many :granted_natlangs, class_name: 'Natlang', join_table: 'granted_natlangs_users'
 
-   def self.from_omniauth(auth)
-  #where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+def self.from_omniauth(auth)
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
     user.email = auth.info.email
-    #user.email = "#{(0..8).map { (65 + rand(26)).chr }.join}@gmail.com"
-    user.password = Devise.friendly_token[0, 20]
-    user.provider = auth.provider
-    user.uid = auth.uid
-    user.name = auth.info.name
-    user.oauth_token = auth.credentials.token
-    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-    user.save!
+    user.password = Devise.friendly_token[0,20]
+    user.name = auth.info.name   # assuming the user model has a name
+    user.image = auth.info.image # assuming the user model has an image
   end
 end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
 end
