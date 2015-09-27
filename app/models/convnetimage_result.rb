@@ -11,18 +11,8 @@ class ConvnetimageResult < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates :convnetimage, :image, :user, presence: true
 
-  def state
-    response["state"] || "NOT SENT YET"
-  end
-
-  def response_id
-    response["id"]
-  end
-
-  def labels
-    response["results"] &&
-    response["results"]["predictions"][0]["output"][0]["labels"] ||
-    []
+  def completed?
+    !!response['predictions']
   end
 
   def response

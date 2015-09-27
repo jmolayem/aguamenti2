@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912202022) do
+ActiveRecord::Schema.define(version: 20150927231708) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -52,8 +52,6 @@ ActiveRecord::Schema.define(version: 20150912202022) do
 
   create_table "convnetimages", force: :cascade do |t|
     t.string   "name"
-    t.string   "api"
-    t.string   "modelid"
     t.text     "description"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
@@ -73,6 +71,7 @@ ActiveRecord::Schema.define(version: 20150912202022) do
     t.string   "snippet_content_type"
     t.integer  "snippet_file_size"
     t.datetime "snippet_updated_at"
+    t.integer  "classifier_id"
   end
 
   add_index "convnetimages", ["user_id"], name: "index_convnetimages_on_user_id"
