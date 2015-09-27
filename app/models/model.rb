@@ -23,7 +23,7 @@ class Model < ActiveRecord::Base
 
   validates :name, presence: true
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-  validates_attachment_content_type :dataset, :content_type => ['application/csv','application/xlsx','application/xls'], :message => ',Only excel and csv files are allowed.'
+  validates_attachment_content_type :dataset, :content_type => ['text/csv','application/xlsx','application/xls'], :message => 'Only excel and csv files are allowed.'
   validates_attachment_size :dataset, :less_than => 25.megabytes
 end
 #GETTING ERROR W/ Manapool Gem

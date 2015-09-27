@@ -103,7 +103,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def model_params
-      params.require(:model).permit(:id, :name, :description, :accuracy, :algorithm, :organization, :size, :api_key, :endpoint,
+      params.require(:model).permit(:id, :name, :dataset, :snippet, :description, :accuracy, :algorithm, :organization, :size, :api_key, :endpoint,
                                     inputs_attributes: [:id, :name, :kind, :order, :_destroy],
                                     outputs_attributes: [:id, :name, :kind, :order, :default_value, :_destroy])
     end
