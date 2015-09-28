@@ -27,7 +27,7 @@ class ConvnetimagesController < ApplicationController
   # GET /convnetimages/new
   def new
     @convnetimage = Convnetimage.new
-    #authorize @convnetimage
+    authorize @convnetimage
   end
 
   # GET /convnetimages/1/edit
