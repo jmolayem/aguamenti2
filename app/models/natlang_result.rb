@@ -11,6 +11,12 @@ class NatlangResult < ActiveRecord::Base
     JSON.parse(super || '{}')
   end
 
+  def predictions
+    response['predictions'].to_a.map do |prediction|
+      NatlangPrediction.new(prediction)
+    end
+  end
+
   def completed?
     !!response['predictions']
   end

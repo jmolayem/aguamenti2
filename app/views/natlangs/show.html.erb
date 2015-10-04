@@ -78,7 +78,7 @@
     <tr>
       <td><%= natlang_result.value %></td>
       <td><%= natlang_result.completed? %></td>
-      <td><%= natlang_result.response['predictions'] %></td>
+      <td><%= predictions_for(natlang_result) %></td>
    </tr>
   <% end %>
 </table>
