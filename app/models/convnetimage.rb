@@ -15,6 +15,8 @@ class Convnetimage < ActiveRecord::Base
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :dataset, :content_type => /\Aapplication\/zip\Z/
   #validates_attachment_size :dataset, :less_than => 100.megabytes
+
+  validates :classifier_id, presence: true
 end
 #GETTING ERROR WITH MANAPOOL GEM
 #user = User.create!

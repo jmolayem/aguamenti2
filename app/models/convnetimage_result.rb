@@ -15,6 +15,12 @@ class ConvnetimageResult < ActiveRecord::Base
     !!response['predictions']
   end
 
+  def predictions
+    response['predictions'].to_a.map do |prediction|
+      ConvnetimagePrediction.new(prediction)
+    end
+  end
+
   def response
     JSON.parse(super || '{}')
   end

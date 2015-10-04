@@ -27,7 +27,7 @@ class ConvnetimagesController < ApplicationController
   # GET /convnetimages/new
   def new
     @convnetimage = Convnetimage.new
-    authorize @convnetimage
+    #authorize @convnetimage
   end
 
   # GET /convnetimages/1/edit
@@ -82,7 +82,18 @@ class ConvnetimagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def convnetimage_params
-      params.require(:convnetimage).permit(:cover,:dataset,:name,:size,:accuracy, :api, :description, :zip_image, :iterations)
+      params.require(:convnetimage).permit(
+        :cover,
+        :dataset,
+        :name,
+        :size,
+        :accuracy,
+        :classifier_id,
+        :api,
+        :description,
+        :zip_image,
+        :iterations
+      )
     end
     #Below function may not be necessary. this function below simply mashed our inputs and outputs together for acceptable format with Azure.
     def result_params

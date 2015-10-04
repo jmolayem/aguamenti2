@@ -54,7 +54,7 @@
     <h3> Predict </h3>
 <p>Glucose Level: <%= @convnet_usages_left %></p>
 <%= form_for @new_convnetimage_result do |f| %>
-  <%= f.hidden_field :convnetimage_id, image: @convnetimage.id %>
+  <%= f.hidden_field :convnetimage_id, value: @convnetimage.id %>
   <%= f.label :image %>
   <%= f.file_field :image, class: "form-control" %>
 <br>
@@ -90,9 +90,9 @@
   </thead>
   <% @convnetimage_results.each do |convnetimage_result| %>
     <tr>
-      <td><%= convnetimage_result.image %></td>
+      <td><%= image_tag convnetimage_result.image.url(:medium) %></td>
       <td><%= convnetimage_result.completed? %></td>
-      <td><%= convnetimage_result.response['predictions'] %></td>
+      <td><%= predictions_for(convnetimage_result) %></td>
    </tr>
   <% end %>
 </table>
