@@ -14,6 +14,7 @@ class Convnetimage < ActiveRecord::Base
   #validates :cover,:dataset,:name, :description, :size, :accuracy, :api, :iterations, presence: true
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :dataset, :content_type => /.*/, :message => ',Only excel and csv files are allowed.'
+  validates_attachment_content_type :snippet, :content_type => /.*/, :message => ',Only excel and csv files are allowed.'
   #validates_attachment_size :dataset, :less_than => 100.megabytes
 
   validates :classifier_id, presence: true
