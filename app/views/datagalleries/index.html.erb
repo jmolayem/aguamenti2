@@ -21,6 +21,8 @@
     <th class="center">Organization</th>
     <th class="center">Snippet</th>
     <th class="center">Full Dataset</th>
+    <th class="center">Content</th>
+    <th class="center">Full File Size</th>
 </tr>
 
   <% @datagalleries.each do |datagallery| %>
@@ -29,17 +31,8 @@
             <td><%= datagallery.organization %></td>
             <td><%= link_to 'Dataset Snippet', datagallery.snippet.url, class:"btn btn-primary"%></td>
             <td><%= link_to 'Full dataset', datagallery.dataset.url, class:"btn btn-primary"%></td>
-            <td>
-              <div class="btn-group">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Action <span class="caret"></span>
-                </button>
-              <ul class="dropdown-menu" role="menu">
-              <li><%= link_to 'Use', datagallery%></li>
-              <li><%= link_to 'Edit', edit_model_path(datagallery), class: "glyphicon glyphicon-pencil" %></li>
-             <li><%= link_to 'Destroy', datagallery, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-trash" %></li>
-           </ul>
-         </div>
+            <td><%= datagallery.dataset_content_type %></td>
+            <td><%= number_to_human_size(datagallery.dataset_file_size) %></td>
               </td>
             </tr>
             <% end %>
