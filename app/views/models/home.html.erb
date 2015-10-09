@@ -4,7 +4,7 @@
             <h1>Free Image and Language Recognition for Municipal Government</h1>
             <hr>
             <p>Here you will find the public sector's first A.I. brought to life by the world's largest open network of government images and words.</p>
-            <a href="https://www.govmind.org/datagalleries" class="btn btn-primary btn-xl page-scroll">Fire</a>
+            <a href="https://www.govmind.org/datagalleries" class="btn btn-primary btn-xl page-scroll">Demo</a>
         </div>
     </div>
 </header>
@@ -13,56 +13,18 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Image Classifier</h2>
+                <h2 class="section-heading">Try the Demo</h2>
                 <hr class="light">
-                <p class="text-faded">The classifier uses 3K standard drawings from the Department of Transportation (DOT) in 13 states. Cross sections, traffic control, plan and profiles, details - give us plans, we give you answers. </p>
+                <p class="text-faded">This demo uses 3K standard drawings from the Department of Transportation (DOT) in 13 states. Cross sections, traffic control, plan and profiles, details - give us plans, we give you answers. </p>
                 </div>
-                  <div class="col-md-6 text-center">
-                    <h4 class="section-heading">Image</h4>
-            <img src="fhwa.jpg" class="img-responsive" alt="air feed">
-</div>
-<div class="col-md-6 col-md-4 text-center">
-    <h4 class="section-heading">Top 5 Predicted Classification</h4>
-    <table class="table table-hover">
-            <thead>
-      <tr>
-        <th>Prediction</th>
-        <th>Probability</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Cross Section</td>
-        <td>87.3%</td>
-        </tr>
-        <tr>
-        <td>Plan</td>
-        <td>6.7%</td>
-      </tr>
-      <tr>
-        <td>Plan and Profile</td>
-        <td>4.0%</td>
-      </tr>
-      <tr>
-        <td>Traffic Control</td>
-        <td>0.6%</td>
-      </tr>
-      <tr>
-        <td>Detail</td>
-        <td>0.4%</td>
-      </tr>
-    </tbody>
-        </table>
-          <div class="col-xs-4 col-md-4 pull-right">
-<br>
-<span class="btn btn-danger btn-file">
-    Upload Image <input type="file">
-</span>
+                    <div class="js-convnetimage-result">
+                    </div>
+                    <div class="col-xs-4 col-md-4 pull-right">
+                        <br>
+                        <%= render 'convnetimages/result_form', new_convnetimage_result: @new_convnetimage_result, convnetimage: @convnetimage %>
 
-</div>
-    </div>
-    </div>
-
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -72,7 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Browse our reach - we got you covered</h2>
+                    <h2 class="section-heading">browse our reach - we got you covered</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -144,9 +106,39 @@
     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="something in the gutter a few houses down from by driveway is causing flooding in the street when it rains">
   </div>
 
-    <%= submit_tag 'fire', class: "btn btn-danger" %>
-  </div>
-            </div>
+    <%= submit_tag 'Classify', class: "btn btn-danger" %>
+  <div class="col-md-6 col-md-4 text-center">
+    <h4 class="section-heading">top 5 predictions for this sentence:</h4>
+    <table class="table">
+            <thead>
+      <tr>
+        <th>Prediction</th>
+        <th>Probability</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cross Section</td>
+        <td>87.3%</td>
+        </tr>
+        <tr>
+        <td>Plan</td>
+        <td>6.7%</td>
+      </tr>
+      <tr>
+        <td>Plan and Profile</td>
+        <td>4.0%</td>
+      </tr>
+      <tr>
+        <td>Traffic Control</td>
+        <td>0.6%</td>
+      </tr>
+      <tr>
+        <td>Detail</td>
+        <td>0.4%</td>
+      </tr>
+    </tbody>
+        </table>
         </div>
     </div>
 </aside>

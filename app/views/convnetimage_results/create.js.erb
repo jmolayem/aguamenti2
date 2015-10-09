@@ -1,0 +1,18 @@
+(function () {
+	// Capturing the HTML partial
+	var body = "<%= j render('result', result: @convnetimage_result) %>";
+	var id = <%= @convnetimage_result.id %>;
+
+	// JS code
+
+	replaceResultBody(body);
+	setInterval(pollResult, 1000);
+
+	function pollResult () {
+		$.get('/convnetimage_results/' + id).then(replaceResultBody);
+	}
+
+	function replaceResultBody (body) {
+		$('.js-convnetimage-result').html(body);
+	}
+})();

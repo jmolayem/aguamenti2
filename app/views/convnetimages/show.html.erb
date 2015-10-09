@@ -53,15 +53,7 @@
   <div class="col-xs-6 col-md-4">
     <h3> Predict </h3>
 <p>Glucose Level: <%= @convnet_usages_left %></p>
-<%= form_for @new_convnetimage_result do |f| %>
-  <%= f.hidden_field :convnetimage_id, value: @convnetimage.id %>
-  <%= f.label :image %>
-  <%= f.file_field :image, class: "form-control" %>
-<br>
-  <div class="form-group">
-    <%= submit_tag 'fire neurons', class: "btn btn-danger" %>
-  </div>
-<% end %>
+<%= render 'result_form', new_convnetimage_result: @new_convnetimage_result, convnetimage: @convnetimage %>
 
 </div>
 </div>

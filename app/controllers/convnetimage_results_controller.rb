@@ -2,13 +2,25 @@ class ConvnetimageResultsController < ApplicationController
 	def create
 		@convnetimage_result = ConvnetimageResult.new(convnetimage_result_params)
 		@convnetimage_result.user = current_user
+
 		if @convnetimage_result.save
         	DeepLearningWorker.perform_async(@convnetimage_result.id)
 			flash[:notice] = 'Wait while the result is being processed...' 
 		else
 			flash[:errors] = @convnetimage_result
 		end
-		redirect_to convnetimage_path(@convnetimage_result.convnetimage)
+
+		respond_to do |format|
+			format.js { render }
+			format.html do
+				redirect_to convnetimage_path(@convnetimage_result.convnetimage)
+			end
+		end
+	end
+
+	def show
+		@convnetimage_result = ConvnetimageResult.find(params[:id])
+		render layout: false
 	end
 
 	private

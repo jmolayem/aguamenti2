@@ -1,0 +1,11 @@
+<%= form_for new_convnetimage_result, remote: true do |f| %>
+  <%= f.hidden_field :convnetimage_id, value: convnetimage.id %>
+  <span class="btn btn-danger btn-file">
+    <%= f.label :image, 'Upload Image' %>
+    <%= f.file_field :image, class: "form-control" %>
+  </span>
+<br>
+  <div class="form-group">
+    <%= submit_tag 'fire neurons', class: "btn btn-danger" %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<div class="col-md-6 text-center">
+    <h4 class="section-heading">Submitted Image</h4>
+    <%= image_tag result.image.url, class: 'img-responsive', alt: 'air feed' %>
+</div>
+<div class="col-md-6 col-md-4 text-center">
+    <% if result.completed? %>
+      <h4 class="section-heading">Top 5 Predictions for this Image</h4>
+      <table class="table">
+          <thead>
+            <tr>
+              <th>Prediction</th>
+              <th>Probability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% result.predictions.each do |prediction| %>
+              <tr>
+                <td><%= prediction.class_name %></td>
+                <td><%= prediction.probability %></td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+    <% else %>
+      <h4 class="section-heading">Processing...</h4>
+    <% end %>
+</div>

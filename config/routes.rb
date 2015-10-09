@@ -32,7 +32,7 @@ devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_call
     end
   end
 
-  resources :convnetimage_results, only: [:create]
+  resources :convnetimage_results, only: [:create, :show]
 
   resources :datagalleries do
     collection do

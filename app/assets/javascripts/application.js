@@ -20,4 +20,5 @@
 //= require theme/classie
 //= require theme/cbpAnimatedHeader
 //= require theme/wow.min
+//= require jquery.remotipart
 //= require_tree .

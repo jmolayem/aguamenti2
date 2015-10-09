@@ -1,6 +1,9 @@
 class ModelsController < ApplicationController
 before_filter :authenticate_user!, only: [:maker, :new, :create, :edit, :update, :destroy]
+  
   def home
+    @convnetimage = Convnetimage.order(created_at: :asc).first
+    @new_convnetimage_result = ConvnetimageResult.new
   end
 
 def maker
