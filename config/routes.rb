@@ -4,7 +4,7 @@ Govmind::Application.routes.draw do
   # TODO: fix this!
   #get '/users/:id', :to=>'users#show',:as=>:user
   resources :natlangs
-  resources :natlang_results
+  resources :natlang_results, only: [:create, :show]
   get 'pages/donate'
 
   get 'pages/legal'

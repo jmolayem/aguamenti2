@@ -52,16 +52,7 @@
   <div class="col-xs-6 col-md-4">
   <h3>Predict</h3>
       <p>Glucose Level: <%= @natlang_usages_left %></p>
-<%= form_for @natlang_result do |f| %>
-  <%= f.hidden_field :natlang_id, value: @natlang.id %>
-  <%= f.label :value %>
-  <%= f.text_area :value, class: "form-control" %>
-  <!--input type="text" x-webkit-speech /-->
-  <br>
-  <div class="form-group">
-    <%= submit_tag 'fire neurons', class: "btn btn-danger" %>
-  </div>
-<% end %>
+    <%= render 'result_form', new_natlang_result: @new_natlang_result, natlang: @natlang %>
     </div>
   </div>
 </div>

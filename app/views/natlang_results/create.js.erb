@@ -1,0 +1,18 @@
+(function () {
+	// Capturing the HTML partial
+	var body = "<%= j render('result', result: @natlang_result) %>";
+	var id = <%= @natlang_result.id %>;
+
+	// JS code
+
+	replaceResultBody(body);
+	setInterval(pollResult, 1000);
+
+	function pollResult () {
+		$.get('/natlang_results/' + id).then(replaceResultBody);
+	}
+
+	function replaceResultBody (body) {
+		$('.js-natlang-result').html(body);
+	}
+})();

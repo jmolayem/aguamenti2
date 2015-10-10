@@ -4,6 +4,8 @@ before_filter :authenticate_user!, only: [:maker, :new, :create, :edit, :update,
   def home
     @convnetimage = Convnetimage.order(created_at: :asc).first
     @new_convnetimage_result = ConvnetimageResult.new
+    @natlang = Natlang.order(created_at: :asc).first
+    @new_natlang_result = NatlangResult.new
   end
 
 def maker

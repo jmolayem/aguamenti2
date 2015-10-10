@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Convnetimage.create!(name: 'demo', classifier_id: 39356, created_at: 1.year.ago, user: User.first)
+Natlang.create!(name: 'langdemo', classifier_id: 35514, created_at: 1.year.ago, user: User.first)
