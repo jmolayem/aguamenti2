@@ -1,4 +1,5 @@
 Govmind::Application.routes.draw do
+  resources :categories
   resources :datagalleries
   resources :activities
   # TODO: fix this!

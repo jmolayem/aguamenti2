@@ -2,6 +2,7 @@ class Datagallery < ActiveRecord::Base
 	include PublicActivity::Common
 
 	belongs_to :user
+	belongs_to :category
 
 	has_attached_file :dataset
   	has_attached_file :snippet

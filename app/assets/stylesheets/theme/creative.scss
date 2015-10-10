@@ -36,7 +36,7 @@ body {
 
 hr {
     max-width: 50px;
-    border-color: #3A5795;
+    border-color: #60A1D3;
     border-width: 3px;
 }
 
@@ -45,7 +45,7 @@ hr.light {
 }
 
 a {
-    color: #3A5795;
+    color: #60A1D3;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -72,12 +72,12 @@ p {
 }
 
 .bg-primary {
-    background-color: #3A5795;
+    background-color: #60A1D3;
 }
 
 .bg-dark {
     color: #fff;
-    background-color: #3B5998;
+    background-color: #60A1D3;
 }
 
 .text-faded {
@@ -109,7 +109,7 @@ aside {
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
-    color: #3A5795;
+    color: #60A1D3;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
@@ -127,24 +127,24 @@ aside {
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: #3A5795;
+    color: #60A1D3;
 }
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: #3A5795!important;
-    background-color: #3A5795;
+    color: #60A1D3!important;
+    background-color: #60A1D3;
 }
 
 .navbar-default .nav > li.active>a:hover,
 .navbar-default .nav>li.active>a:focus:hover {
-    background-color: #3A5795;
+    background-color: #60A1D3;
 }
 
 @media(min-width:768px) {
     .navbar-default {
         border-color: rgba(255,255,255,.3);
-        background-color: #3A5795;
+        background-color: #60A1D3;
     }
 
     .navbar-default .navbar-header .navbar-brand {
@@ -173,7 +173,7 @@ aside {
 
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 14px;
-        color: #3A5795;
+        color: #60A1D3;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
@@ -188,7 +188,7 @@ aside {
 
     .navbar-default.affix .nav > li>a:hover,
     .navbar-default.affix .nav>li>a:focus:hover {
-        color: #3A5795;
+        color: #60A1D3;
     }
 }
 
@@ -343,7 +343,7 @@ header .header-content .header-content-inner p {
 }
 
 .text-primary {
-    color: #3A5795;
+    color: #3B5998;
 }
 
 .no-gutter > [class*=col-] {
@@ -405,9 +405,9 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-    border-color: #3A5795;
+    border-color: #60A1D3;
     color: #fff;
-    background-color: #3A5795;
+    background-color: #60A1D3;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -448,12 +448,12 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    border-color: #3A5795;
-    background-color: #3A5795;
+    border-color: #60A1D3;
+    background-color: #60A1D3;
 }
 
 .btn-primary .badge {
-    color: #3A5795;
+    color: #60A1D3;
     background-color: #fff;
 }
 

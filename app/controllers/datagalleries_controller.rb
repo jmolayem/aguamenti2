@@ -4,7 +4,12 @@ class DatagalleriesController < ApplicationController
   # GET /datagalleries
   # GET /datagalleries.json
   def index
+    #if params[:category].blank?
     @datagalleries = Datagallery.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
+    #else
+    #@category_id = Category.find_by(name: params[:category]).id
+    #@listings = Listing.where(category_id: @category_id).order("created_at DESC")
+    #end
   end
 
   # GET /datagalleries/1
@@ -74,6 +79,6 @@ class DatagalleriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def datagallery_params
-      params.require(:datagallery).permit(:name, :dataset, :snippet, :organization, :size)
+      params.require(:datagallery).permit(:name, :category_id, :dataset, :snippet, :organization, :size)
     end
 end
