@@ -1,6 +1,6 @@
 <div class="col-md-6 text-center">
     <h4 class="section-heading">Submitted Image</h4>
-    <%= image_tag result.image.url, class: 'img-responsive', alt: 'air feed' %>
+    <%= image_tag result.image.url(:medium), class: 'img-responsive', alt: 'air feed' %>
 </div>
 <div class="col-md-6 col-md-4 text-center">
     <% if result.completed? %>
