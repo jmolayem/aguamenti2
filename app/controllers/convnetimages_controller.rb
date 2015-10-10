@@ -1,5 +1,6 @@
 class ConvnetimagesController < ApplicationController
   before_action :set_convnetimage, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
 #incorporated search to our scaffold
   def search
@@ -32,7 +33,10 @@ class ConvnetimagesController < ApplicationController
 
   # GET /convnetimages/1/edit
   def edit
-    #authorize @convnetimage
+    if current_user.admin
+    else
+      redirect_to root_url, alert: "Sorry, only the admin can do this function"
+    end
   end
 
   # POST /convnetimages
@@ -54,24 +58,34 @@ class ConvnetimagesController < ApplicationController
   # PATCH/PUT /convnetimages/1
   # PATCH/PUT /convnetimages/1.json
   def update
-    #authorize @convnetimage
-    respond_to do |format|
+    if current_user.admin
+      respond_to do |format|
       if @convnetimage.update(convnetimage_params)
         format.html { redirect_to @convnetimage, notice: 'Convnetimage was successfully updated.' }
       else
         format.html { render :edit }
       end
     end
+    else
+      redirect_to root_url, alert: "Sorry, only the admin can do this function"
+    end
+    #authorize @convnetimage
   end
 
   # DELETE /convnetimages/1
   # DELETE /convnetimages/1.json
   def destroy
+    if current_user.admin
     #authorize @convnetimage
     @convnetimage.destroy
     respond_to do |format|
       format.html { redirect_to convnetimages_url, notice: 'Convnetimage was successfully destroyed.' }
     end
+    else
+      redirect_to root_url, alert: "Sorry, only the admin can do this function"
+    end
+  else
+
   end
 
   private

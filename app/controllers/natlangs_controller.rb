@@ -1,5 +1,6 @@
 class NatlangsController < ApplicationController
   before_action :set_natlang, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /natlangs
   # GET /natlangs.json
@@ -23,6 +24,10 @@ class NatlangsController < ApplicationController
 
   # GET /natlangs/1/edit
   def edit
+    if current_user.admin
+    else
+      redirect_to root_url, alert: "Sorry, only the admin can do this function"
+    end
     #authorize @natlang
   end
 
@@ -45,6 +50,7 @@ class NatlangsController < ApplicationController
   # PATCH/PUT /natlangs/1
   # PATCH/PUT /natlangs/1.json
   def update
+    if current_user.admin
     #authorize @natlang
     respond_to do |format|
       if @natlang.update(natlang_params)
@@ -55,16 +61,23 @@ class NatlangsController < ApplicationController
         format.json { render json: @natlang.errors, status: :unprocessable_entity }
       end
     end
+    else 
+      redirect_to root_url, alert: "Sorry, only the admin can do this function"
+    end
   end
 
   # DELETE /natlangs/1
   # DELETE /natlangs/1.json
   def destroy
+    if current_user.admin
     #authorize @natlang
     @natlang.destroy
     respond_to do |format|
       format.html { redirect_to natlangs_url, notice: 'Natlang was successfully destroyed.' }
       format.json { head :no_content }
+    end
+    else 
+      redirect_to root_url, alert: "Sorry, only the admin can do this function"
     end
   end
 
