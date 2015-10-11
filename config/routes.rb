@@ -1,6 +1,8 @@
 Govmind::Application.routes.draw do
+  resources :upcomings
+  resources :upcomings
   resources :categories
-  resources :datagalleries
+  #resources :datagalleries
   resources :activities
   # TODO: fix this!
   #get '/users/:id', :to=>'users#show',:as=>:user

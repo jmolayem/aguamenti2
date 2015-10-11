@@ -12,14 +12,6 @@ def maker
   @models = Model.where(user:current_user).order("created_at DESC")
 end
 
-def search
-  if params[:search].present?
-    @models = Model.search(params[:search])
-  else
-    @models = Model.all
-  end
-end
-
   # GET /models
   def index
     @models = Model.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")

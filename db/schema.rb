@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010181438) do
+ActiveRecord::Schema.define(version: 20151011171056) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -239,6 +239,18 @@ ActiveRecord::Schema.define(version: 20151010181438) do
 
   add_index "results", ["model_id"], name: "index_results_on_model_id"
   add_index "results", ["user_id"], name: "index_results_on_user_id"
+
+  create_table "upcomings", force: :cascade do |t|
+    t.string   "name"
+    t.string   "newdate"
+    t.string   "state"
+    t.string   "city"
+    t.string   "modeltyp"
+    t.string   "organization"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "sauce"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

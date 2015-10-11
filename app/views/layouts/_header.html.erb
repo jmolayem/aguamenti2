@@ -92,7 +92,7 @@
        <div class="fb-like" data-href="https://govmind.herokuapp.com/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false">
 </ul>
   <% if user_signed_in? %>
-  <%= form_tag search_models_path, method: :get, class: "navbar-form navbar-left" do %>
+  <%= form_tag search_datagalleries_path, method: :get, class: "navbar-form navbar-left" do %>
       <p>
         <%= text_field_tag :search, params[:search], class: "form-control" %>
         <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
@@ -101,7 +101,8 @@
   <% end %>
       <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
-              <li><%= link_to "Data", datagalleries_path %></li> 
+              <li><%= link_to "Data", datagalleries_path %></li>
+              <li><%= link_to "New", upcomings_path %></li>  
                         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brains<span class="caret"></span></a>
           <ul class="dropdown-menu">

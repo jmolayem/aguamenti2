@@ -13,6 +13,14 @@ class DatagalleriesController < ApplicationController
     #end
   end
 
+def search
+  if params[:search].present?
+    @datagalleries = Datagallery.search(params[:search])
+  else
+    @datagalleries = Datagallery.all
+  end
+end
+
   # GET /datagalleries/1
   # GET /datagalleries/1.json
   def show

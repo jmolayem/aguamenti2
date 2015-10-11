@@ -1,6 +1,13 @@
 class Datagallery < ActiveRecord::Base
-	include PublicActivity::Common
+	include AlgoliaSearch
+  include PublicActivity::Common
 
+  after_save :index!
+  before_destroy :remove_from_index!
+
+  algoliasearch do
+
+  end
 	belongs_to :user
 	belongs_to :category
 

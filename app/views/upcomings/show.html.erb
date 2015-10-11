@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @upcoming.name %>
+</p>
+
+<p>
+  <strong>Newdate:</strong>
+  <%= @upcoming.newdate %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @upcoming.state %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @upcoming.city %>
+</p>
+
+<p>
+  <strong>Modeltyp:</strong>
+  <%= @upcoming.modeltyp %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @upcoming.organization %>
+</p>
+
+<%= link_to 'Edit', edit_upcoming_path(@upcoming) %> |
+<%= link_to 'Back', upcomings_path %>

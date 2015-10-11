@@ -1,27 +1,14 @@
-<header>
-    <div class="header-content">
-        <div class="header-content-inner">
-            <h1>Free Image and Language Recognition for Municipal Government</h1>
-            <hr>
-            <p>Here you will find the public sector's first A.I. brought to life by the world's largest open network of government images and words.</p>
-            <a href="https://www.govmind.org/datagalleries" class="btn btn-primary btn-xl page-scroll">Datasets</a>
-        </div>
-    </div>
-</header>
-
 <aside class="bg-dark">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Try the Demo</h2>
+              <br>
+<br>
+<br>
+                <h2 class="section-heading">Open Data</h2>
                 <hr class="light">
-                <p class="text-faded">This demo uses 3K standard drawings from the Department of Transportation (DOT) in 13 states. Cross sections, traffic control, plan and profiles, details - give us plans, we give you answers. </p>
-                </div>
-                    <div class="js-convnetimage-result">
-                    </div>
-                        <br>
-                        <%= render 'convnetimages/result_form', new_convnetimage_result: @new_convnetimage_result, convnetimage: @convnetimage %>
-                </div>
+                <p class="text-faded">GovMind runs on entirely on public data. The following are used to augment our datasets: a) web scraped images, text, and data from public web sites, b) Amazon Turks to structure unorganized data at scale, and c) batch snip video into millions of images. Currently, “open data” largely focuses on tabular data – we want image and text to be part of the discussion as well. </p>
+                <a href="users/sign_up" class="btn btn-default btn-xl">Learn More</a>
             </div>
         </div>
     </div>
@@ -106,56 +93,41 @@
         </div>
     </section>
 
-<aside class="bg-dark">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Language Classifier</h2>
-                <hr class="light">
-                <p class="text-faded">This model uses over 173K 3-1-1 city services complaints from the City of Chicago. Complaints on trees, trash, potholes, or anything - give us a complaint, we give you the solution. </p>
-    <form>
-                    <div class="js-natlang-result">
-                    </div>
-                        <br>
-                        <%= render 'natlangs/result_form', new_natlang_result: @new_natlang_result, natlang: @natlang %>
-                </div>
-    </div>
-</aside>
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr class="danger">
+    <th class="center">Purpose</th>
+    <th class="center">Organization</th>
+    <th class="center">Snippet</th>
+    <th class="center">Full Dataset</th>
+    <th class="center">Content</th>
+    <th class="center">Full File Size</th>
+</tr>
 
-    <aside class="bg-grey"
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Trending</h2>
-                    <div class="row">
-  <div class="border col-lg-3">City of Chicago Releases 3-1-1 Requests</div>
-  <div class="border col-lg-3">.col-xs-3</div>
-  <div class="border col-lg-3">.col-xs-3</div>
-  <div class="border col-lg-3">.col-xs-3</div>
+  <% @datagalleries.each do |datagallery| %>
+<tr>
+            <td><%= datagallery.name %></td>
+            <td><%= datagallery.organization %></td>
+            <td><%= link_to 'Dataset Snippet', datagallery.snippet.url, class:"btn btn-primary"%></td>
+            <td><%= link_to 'Full dataset', datagallery.dataset.url, class:"btn btn-primary"%></td>
+            <td><%= datagallery.dataset_content_type %></td>
+            <td><%= number_to_human_size(datagallery.dataset_file_size) %></td>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+<br>
+
+<div class="container">
+<%= will_paginate @datagallery, renderer: BootstrapPagination::Rails  %>
 </div>
-                    <hr class="primary">
-                </div>
-            </div>
-        </div>
-        </div>
-    </bg>
 
-<section id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Contribute</h2>
-                <hr class="primary">
-                <p>Give us a call or send us an email if you would like access and/or the ability to host your model on GovMind.</p>
-            </div>
-            <div class="col-lg-4 col-lg-offset-2 text-center">
-                <i class="fa fa-phone fa-3x wow bounceIn" data-wow-delay=".3s"></i>
-                <p>818-644-0498</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".5s"></i>
-                <p><a href="mailto:your-email@your-domain.com">govmind@gmail.com</a></p>
-            </div>
-        </div>
-    </div>
-</section>
+<% if user_signed_in? %>
+<% if current_user.admin? %>
+<div class="center">
+<%= link_to new_datagallery_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
+  <i class="glyphicon glyphicon-plus"></i> New Dataset
+<% end %>
+</div>
+<% end %>
+<% end %>

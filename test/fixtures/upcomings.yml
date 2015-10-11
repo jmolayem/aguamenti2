@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  newdate: MyString
+  state: MyString
+  city: MyString
+  modeltyp: MyString
+  organization: MyString
+
+two:
+  name: MyString
+  newdate: MyString
+  state: MyString
+  city: MyString
+  modeltyp: MyString
+  organization: MyString
