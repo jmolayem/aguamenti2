@@ -21,6 +21,7 @@ class ConvnetimagesController < ApplicationController
   # GET /convnetimages/1.json
   def show
     @convnetimage_results = @convnetimage.convnetimage_results.where(user: current_user)
+    @congnetimage_trend = @convnetimage.punch(request)
     @new_convnetimage_result = ConvnetimageResult.new
     @convnet_usages_left = ManaPotion::CheckUsage.new(ConvnetimageResult.new, current_user, Result::LIMIT, Result::PERIOD).remaining
   end
@@ -90,9 +91,9 @@ class ConvnetimagesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    #def set_convnetimage
-      #@convnetimage = Convnetimage.find(params[:id])
-    #end
+    def set_convnetimage
+      @convnetimage = Convnetimage.find(params[:id])
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def convnetimage_params

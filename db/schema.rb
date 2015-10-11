@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151011171056) do
+ActiveRecord::Schema.define(version: 20151011180514) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -228,6 +228,18 @@ ActiveRecord::Schema.define(version: 20151011171056) do
   end
 
   add_index "outputs", ["model_id"], name: "index_outputs_on_model_id"
+
+  create_table "punches", force: :cascade do |t|
+    t.integer  "punchable_id",                          null: false
+    t.string   "punchable_type", limit: 20,             null: false
+    t.datetime "starts_at",                             null: false
+    t.datetime "ends_at",                               null: false
+    t.datetime "average_time",                          null: false
+    t.integer  "hits",                      default: 1, null: false
+  end
+
+  add_index "punches", ["average_time"], name: "index_punches_on_average_time"
+  add_index "punches", ["punchable_type", "punchable_id"], name: "punchable_index"
 
   create_table "results", force: :cascade do |t|
     t.integer  "user_id"
