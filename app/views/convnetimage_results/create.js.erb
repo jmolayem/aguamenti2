@@ -6,13 +6,17 @@
 	// JS code
 
 	replaceResultBody(body);
-	setInterval(pollResult, 1000);
+	var id = setInterval(pollResult, 1000);
 
 	function pollResult () {
 		$.get('/convnetimage_results/' + id).then(replaceResultBody);
 	}
 
-	function replaceResultBody (body) {
-		$('.js-convnetimage-result').html(body);
+	function replaceResultBody (response) {
+		$('.js-convnetimage-result').html(response.body);
+
+		if (response.completed) {
+			clearInterval(id);
+		}
 	}
 })();

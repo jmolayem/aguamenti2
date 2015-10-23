@@ -20,7 +20,10 @@ class ConvnetimageResultsController < ApplicationController
 
 	def show
 		@convnetimage_result = ConvnetimageResult.find(params[:id])
-		render layout: false
+		render json: {
+				completed: @convnetimage_result.completed?,
+				body: render_to_string(layout: false)
+			}
 	end
 
 	private
