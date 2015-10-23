@@ -1,39 +1,3 @@
-<div class="col-md-6 text-center">
-                    <h4 class="section-heading">Image</h4>
-            <img src="fhwa.jpg" class="img-responsive" alt="air feed">
-</div>
-<div class="col-md-6 col-md-4 text-center">
-    <h4 class="section-heading">Top 5 Predicted Classification</h4>
-    <table class="table">
-            <thead>
-      <tr>
-        <th>Prediction</th>
-        <th>Probability</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Cross Section</td>
-        <td>87.3%</td>
-        </tr>
-        <tr>
-        <td>Plan</td>
-        <td>6.7%</td>
-      </tr>
-      <tr>
-        <td>Plan and Profile</td>
-        <td>4.0%</td>
-      </tr>
-      <tr>
-        <td>Traffic Control</td>
-        <td>0.6%</td>
-      </tr>
-      <tr>
-        <td>Detail</td>
-        <td>0.4%</td>
-      </tr>
-    </tbody>
-        </table>
 
 <%= form_for new_convnetimage_result, remote: true do |f| %>
   <%= f.hidden_field :convnetimage_id, value: convnetimage.id %>
