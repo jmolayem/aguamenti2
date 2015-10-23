@@ -12,7 +12,7 @@ class NatlangsController < ApplicationController
   # GET /natlangs/1.json
   def show
     @natlang_results = @natlang.natlang_results.where(user: current_user)
-    @natlang_result = NatlangResult.new
+    @new_natlang_result = NatlangResult.new
     @natlang_usages_left = ManaPotion::CheckUsage.new(Result.new, current_user, Result::LIMIT, Result::PERIOD).remaining 
   end
 
