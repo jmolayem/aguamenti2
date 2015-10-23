@@ -2,6 +2,7 @@ class Natlang < ActiveRecord::Base
   include PublicActivity::Common
 
   has_many :natlang_results
+  belongs_to :user
 
   has_attached_file :image, :styles => { :medium => "200x>", :thumb => "100x100>" }, :default_url => "cmon.png"
   has_attached_file :dataset

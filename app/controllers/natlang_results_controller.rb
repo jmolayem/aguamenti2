@@ -20,7 +20,10 @@ class NatlangResultsController < ApplicationController
 
 	def show
 		@natlang_result = NatlangResult.find(params[:id])
-		render layout: false
+				render json: {
+				completed: @natlang_result.completed?,
+				body: render_to_string(layout: false)
+			}
 	end
 
 	private

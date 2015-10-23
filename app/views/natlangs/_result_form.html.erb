@@ -3,7 +3,7 @@
   <span class="form-inline">
   <span class="form-group">
   	<%= f.label :value, 'Complaint:' %>
-  	<%= f.text_area :value, :size =>"100x3", class: "form-control", placeholder:"Example: the gutter near my driveway keeps flooding when it rains" %>
+  	<%= f.text_area :value, :size =>"60x3", class: "form-control", placeholder:"Example: the gutter near my driveway keeps flooding when it rains" %>
 </span>
 </span>
 <br>
@@ -12,36 +12,3 @@
     <%= submit_tag 'classify', class: "btn btn-danger" %>
   </div>
 <% end %>
-<div class="js-natlang-result">
-  <h4 class="section-heading">top 5 predictions for this sentence:</h4>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Prediction</th>
-        <th>Probability</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Flood</td>
-        <td>83.1%</td>
-        </tr>
-        <tr>
-        <td>Drain Problem</td>
-        <td>12.3%</td>
-      </tr>
-      <tr>
-        <td>Trash</td>
-        <td>4.0%</td>
-      </tr>
-      <tr>
-        <td>Pothole</td>
-        <td>0.4%</td>
-      </tr>
-      <tr>
-        <td>Street Light</td>
-        <td>0.2%</td>
-      </tr>
-    </tbody>
-  </table>
-</div>

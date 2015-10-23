@@ -6,14 +6,17 @@
 	// JS code
 
 	replaceResultBody(body);
-	setInterval(pollResult, 1000);
+	var intervalId = setInterval(pollResult, 1000);
 
 	function pollResult () {
 		$.get('/natlang_results/' + id).then(replaceResultBody);
 	}
 
-	function replaceResultBody (body) {
-		//console.log('replace', body, $('.js-natlang-result'));
-		$('.js-natlang-result').html(body);
+	function replaceResultBody (response) {
+		$('.js-natlang-result').html(response.body);
+
+		if (response.completed) {
+			clearInterval(intervalId);
+		}
 	}
 })();
