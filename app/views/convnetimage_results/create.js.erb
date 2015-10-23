@@ -6,7 +6,7 @@
 	// JS code
 
 	replaceResultBody(body);
-	var id = setInterval(pollResult, 1000);
+	var intervalId = setInterval(pollResult, 1000);
 
 	function pollResult () {
 		$.get('/convnetimage_results/' + id).then(replaceResultBody);
@@ -16,7 +16,7 @@
 		$('.js-convnetimage-result').html(response.body);
 
 		if (response.completed) {
-			clearInterval(id);
+			clearInterval(intervalId);
 		}
 	}
 })();
