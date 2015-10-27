@@ -1,8 +1,8 @@
 class Convnetimage < ActiveRecord::Base
   include PublicActivity::Common
-  include ManaPotion::Pool
+  #include ManaPotion::Pool
 
-  mana_pool_for :user, limit:10, period: 10.hour
+  #mana_pool_for :user, limit:10, period: 10.hour
   acts_as_punchable
 
   belongs_to :user
