@@ -12,6 +12,7 @@ class DeepLearning
   end
 
   def post_image(classifier_id, image_url)
+    classifier_id = classifier_id.to_i if classifier_id  =~ /^\d+$/
     payload = { classifier_id: classifier_id, image_url: image_url }
     RestClient.post(ENDPOINT, payload.to_json, @headers)
   end

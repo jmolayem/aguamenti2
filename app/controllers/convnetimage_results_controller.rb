@@ -22,7 +22,8 @@ class ConvnetimageResultsController < ApplicationController
 		@convnetimage_result = ConvnetimageResult.find(params[:id])
 		render json: {
 				completed: @convnetimage_result.completed?,
-				body: render_to_string(layout: false)
+				body: render_to_string(layout: false),
+				data: @convnetimage_result
 			}
 	end
 
