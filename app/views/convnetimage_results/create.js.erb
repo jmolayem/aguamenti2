@@ -2,9 +2,11 @@
 	// Capturing the HTML partial
 	var body = "<%= j render('result', result: @convnetimage_result) %>";
 	var id = <%= @convnetimage_result.id %>;
+	var targetSelector = "<%= @target_selector %>";
 
 	// JS code
 
+	console.log(this);
 	// TODO: Extract the specific logic to the landing page and the model page
 	// $.trigger('resultCreated', body, id);
 
@@ -16,7 +18,7 @@
 	}
 
 	function replaceResultBody (response) {
-		$('.js-convnetimage-result').html(response.body);
+		$(targetSelector).html(response.body);
 
 		if (response.completed) {
 			clearInterval(intervalId);

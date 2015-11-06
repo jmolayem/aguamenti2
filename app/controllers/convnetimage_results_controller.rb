@@ -2,6 +2,7 @@ class ConvnetimageResultsController < ApplicationController
 	def create
 		@convnetimage_result = ConvnetimageResult.new(convnetimage_result_params)
 		@convnetimage_result.user = current_user
+		@target_selector = params[:target_selector]
 
 		if @convnetimage_result.save
         	DeepLearningWorker.perform_async(@convnetimage_result.id)

@@ -1,5 +1,6 @@
 <%= form_for new_convnetimage_result, remote: true do |f| %>
   <%= f.hidden_field :convnetimage_id, value: convnetimage.id %>
+  <%= hidden_field_tag :target_selector, target_selector %>
   <span class="btn btn-danger btn-file">
     <%= f.label :image, 'Upload Image' %>
     <%= f.file_field :image, class: "form-control" %>

@@ -17,7 +17,7 @@
                 <hr class="light">
                 <p class="text-faded">This demo uses over 500K images from the ImageNet Database - the world's largest database for general purpose images. Upload any image and hit classify.  </p>
                 </div>
-                                    <div class="js-convnetimage-result">
+                                    <div class="js-convnetimage-result-2">
                                         <div class="col-md-6 text-center">
                                             <h4 class="section-heading">Image</h4>
                                             <img src="fhwa.jpg" class="img-responsive" alt="air feed">
@@ -61,7 +61,8 @@
                             <br>
                             <br>
                             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <%= render 'convnetimages/result_form', new_convnetimage_result: @new_convnetimage_result, convnetimage: @convnetimage %>
+                <%= render 'convnetimages/result_form', new_convnetimage_result: @second_convnetimage_result, convnetimage: @second_convnetimage,
+                    target_selector: '.js-convnetimage-result-2' %>
                             </div>
         </div>
     </div>
@@ -150,47 +151,57 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Language Classifier</h2>
+                <h2 class="section-heading">image2gallons: copying Google's image2calories for water.</h2>
                 <hr class="light">
-                <p class="text-faded">This model uses over 173K water over use complaints to the Los Angeles Department of Water and Power. If you're a water stakeholder, prioritize complaints of water waste with your eyes closed and at the speed of light. </p>
-                    <div class="js-natlang-result">
-                        <h4 class="section-heading">top 5 predictions for this sentence:</h4>
-                          <table class="table">
-                            <thead>
-                              <tr>
-                                <th>Prediction</th>
-                                <th>Probability</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>Flood</td>
-                                <td>83.1%</td>
-                                </tr>
-                                <tr>
-                                <td>Drain Problem</td>
-                                <td>12.3%</td>
-                              </tr>
-                              <tr>
-                                <td>Trash</td>
-                                <td>4.0%</td>
-                              </tr>
-                              <tr>
-                                <td>Pothole</td>
-                                <td>0.4%</td>
-                              </tr>
-                              <tr>
-                                <td>Street Light</td>
-                                <td>0.2%</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                    </div>
-                    <br>
-                    <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <%= render 'natlangs/result_form', new_natlang_result: @new_natlang_result, natlang: @natlang %>
-                    </div>
+                <p class="text-faded">This demo uses over 500K images from the ImageNet Database - the world's largest database for general purpose images. Upload any image and hit classify.  </p>
                 </div>
+                                    <div class="js-convnetimage-result-1">
+                                        <div class="col-md-6 text-center">
+                                            <h4 class="section-heading">Image</h4>
+                                            <img src="fhwa.jpg" class="img-responsive" alt="air feed">
+                                        </div>
+                                        <div class="col-md-6 col-md-4 text-center">
+                                            <h4 class="section-heading">Top 5 Predicted Classification</h4>
+                                            <table class="table">
+                                                    <thead>
+                                              <tr>
+                                                <th>Prediction</th>
+                                                <th>Probability</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>Cross Section</td>
+                                                <td>87.3%</td>
+                                                </tr>
+                                                <tr>
+                                                <td>Plan</td>
+                                                <td>6.7%</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Plan and Profile</td>
+                                                <td>4.0%</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Traffic Control</td>
+                                                <td>0.6%</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Detail</td>
+                                                <td>0.4%</td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <%= render 'convnetimages/result_form', new_convnetimage_result: @first_convnetimage_result, convnetimage: @first_convnetimage,
+                    target_selector: '.js-convnetimage-result-1' %>
+                            </div>
         </div>
     </div>
 </aside>
