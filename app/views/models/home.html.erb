@@ -1,10 +1,10 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <h1>The industry's best AI algorithms tackle water</h1>
+            <h1>The industry's best A.I. algorithms tackle water</h1>
             <hr>
-            <p>Here you will find the tools that will help you better understand how water interacts with everyday things around you.</p>
-            <a href="https://www.govmind.org/datagalleries" class="btn btn-primary btn-xl page-scroll">Datasets</a>
+            <p>Here you will find the latest advances in deep learning and computer vision that will help you break down your surroundings to save water.</p>
+            <a href="https://www.Govmind.org/datagalleries" class="btn btn-primary btn-xl page-scroll">Datasets</a>
         </div>
     </div>
 </header>
@@ -13,14 +13,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Google's image2calories for water: image2gallons.</h2>
+                <h2 class="section-heading">food choices matter: image2gallons.</h2>
                 <hr class="light">
-                <p class="text-faded">This demo uses over 500K images from the ImageNet Database - the world's largest database for general purpose images. Upload any image and hit classify.  </p>
+                <p class="text-faded">This demo ties food images to water use. It is "trained" on food images from ImageNet - the largest labeled image database in the world at 14 million images. To use it, upload images of food - bananas, hamburgers, produce, etc. - and hit classify.</p>
                 </div>
                                     <div class="js-convnetimage-result-2">
                                         <div class="col-md-6 text-center">
                                             <h4 class="section-heading">Image</h4>
-                                            <img src="fhwa.jpg" class="img-responsive" alt="air feed">
+                                            <img src="fhwas.jpg" class="img-responsive" alt="air feed">
                                         </div>
                                         <div class="col-md-6 col-md-4 text-center">
                                             <h4 class="section-heading">Top 5 Predicted Classification</h4>
@@ -33,11 +33,11 @@
                                             </thead>
                                             <tbody>
                                               <tr>
-                                                <td>Cross Section</td>
+                                                <td>Almond - 1 gal/almond - half min showering</td>
                                                 <td>87.3%</td>
                                                 </tr>
                                                 <tr>
-                                                <td>Plan</td>
+                                                <td>Strawberry</td>
                                                 <td>6.7%</td>
                                               </tr>
                                               <tr>
@@ -63,6 +63,76 @@
                             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <%= render 'convnetimages/result_form', new_convnetimage_result: @second_convnetimage_result, convnetimage: @second_convnetimage,
                     target_selector: '.js-convnetimage-result-2' %>
+                            </div>
+        </div>
+    </div>
+</aside>
+
+<section id="services">
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1>Turf and Lawn Analysis at Scale</h1>
+            <hr>
+            <p>There are over 1.2 million front lawns in the City of Los Angeles. What if we were able learn everything about them? In. real. time.</p>
+            <a href="https://www.Govmind.org/datagalleries" class="btn btn-primary btn-xl page-scroll">Datasets</a>
+        </div>
+    </div>
+</section>
+
+<aside class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">To rebate or not to rebate?</h2>
+                <hr class="light">
+                <p class="text-faded">This tool algorithmically targets and guides candidates for turf replacement. It is built on pictures from the "Save Our Water Rebates" program.  </p>
+                </div>
+                                    <div class="js-convnetimage-result-1">
+                                        <div class="col-md-6 text-center">
+                                            <h4 class="section-heading">Image</h4>
+                                            <img src="lawn.jpg" class="img-responsive" alt="air feed">
+                                        </div>
+                                        <div class="col-md-6 col-md-4 text-center">
+                                            <h4 class="section-heading">Top 5 Predicted Classification</h4>
+                                            <table class="table">
+                                                    <thead>
+                                              <tr>
+                                                <th>Prediction</th>
+                                                <th>Probability</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>Large - 3000 sq. ft - 300 gal/month</td>
+                                                <td>87.3%</td>
+                                                </tr>
+                                                <tr>
+                                                <td>Medium - 1000 sq. ft - 100 gal/month</td>
+                                                <td>6.7%</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Small - 300 sq ft. - 30 gal/month</td>
+                                                <td>4.0%</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Tiny 50 sq.ft - 5 gal per month</td>
+                                                <td>0.6%</td>
+                                              </tr>
+                                              <tr>
+                                                <td>All dirt or dying - no water used</td>
+                                                <td>0.4%</td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <%= render 'convnetimages/result_form', new_convnetimage_result: @first_convnetimage_result, convnetimage: @first_convnetimage,
+                    target_selector: '.js-convnetimage-result-1' %>
                             </div>
         </div>
     </div>
@@ -151,68 +221,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">image2gallons: copying Google's image2calories for water.</h2>
-                <hr class="light">
-                <p class="text-faded">This demo uses over 500K images from the ImageNet Database - the world's largest database for general purpose images. Upload any image and hit classify.  </p>
-                </div>
-                                    <div class="js-convnetimage-result-1">
-                                        <div class="col-md-6 text-center">
-                                            <h4 class="section-heading">Image</h4>
-                                            <img src="fhwa.jpg" class="img-responsive" alt="air feed">
-                                        </div>
-                                        <div class="col-md-6 col-md-4 text-center">
-                                            <h4 class="section-heading">Top 5 Predicted Classification</h4>
-                                            <table class="table">
-                                                    <thead>
-                                              <tr>
-                                                <th>Prediction</th>
-                                                <th>Probability</th>
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                              <tr>
-                                                <td>Cross Section</td>
-                                                <td>87.3%</td>
-                                                </tr>
-                                                <tr>
-                                                <td>Plan</td>
-                                                <td>6.7%</td>
-                                              </tr>
-                                              <tr>
-                                                <td>Plan and Profile</td>
-                                                <td>4.0%</td>
-                                              </tr>
-                                              <tr>
-                                                <td>Traffic Control</td>
-                                                <td>0.6%</td>
-                                              </tr>
-                                              <tr>
-                                                <td>Detail</td>
-                                                <td>0.4%</td>
-                                              </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                            </div>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <%= render 'convnetimages/result_form', new_convnetimage_result: @first_convnetimage_result, convnetimage: @first_convnetimage,
-                    target_selector: '.js-convnetimage-result-1' %>
-                            </div>
-        </div>
-    </div>
-</aside>
-
-<section id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2 class="section-heading">Contribute</h2>
                 <hr class="primary">
-                <p>Give us a call or send us an email if you would like access and/or the ability to host your model on GovMind.</p>
+                <p>Give us a call or send us an email if you would like access and/or the ability to host your model on Govmind.</p>
             </div>
             <div class="col-lg-4 col-lg-offset-2 text-center">
                 <i class="fa fa-phone fa-3x wow bounceIn" data-wow-delay=".3s"></i>
@@ -220,7 +231,7 @@
             </div>
             <div class="col-lg-4 text-center">
                 <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".5s"></i>
-                <p><a href="mailto:your-email@your-domain.com">govmind@gmail.com</a></p>
+                <p><a href="mailto:your-email@your-domain.com">Govmind@gmail.com</a></p>
             </div>
         </div>
         <div class="row">
@@ -228,4 +239,4 @@
                 <i class="fa fa-map-signs fa-3x wow bounceIn" data-wow-delay=".3s"></i>
                  <p><a href="/pages/legal">Privacy and Website Policies</a></p>
     </div>
-</section>
+</aside>

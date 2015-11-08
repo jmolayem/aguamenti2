@@ -482,11 +482,15 @@ fieldset[disabled] .btn-primary.active {
 }
 
 img::selection {
+    padding:10px;
+    border:10px solid;
     color: #fff;
     background: 0 0;
 }
 
 img::-moz-selection {
+    padding:10px;
+    border:10px solid;
     color: #fff;
     background: 0 0;
 }
