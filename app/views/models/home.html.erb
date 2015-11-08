@@ -17,6 +17,10 @@
                 <hr class="light">
                 <p class="text-faded">This demo ties food images to water use. It is "trained" on food images from ImageNet - the largest labeled image database in the world at 14 million images. To use it, upload images of food - bananas, hamburgers, produce, etc. - and hit classify.</p>
                 </div>
+                                            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <%= render 'convnetimages/result_form', new_convnetimage_result: @second_convnetimage_result, convnetimage: @second_convnetimage,
+                    target_selector: '.js-convnetimage-result-2' %>
+                            </div>
                                     <div class="js-convnetimage-result-2">
                                         <div class="col-md-6 text-center">
                                             <h4 class="section-heading">Image</h4>
@@ -60,10 +64,6 @@
                             <br>
                             <br>
                             <br>
-                            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <%= render 'convnetimages/result_form', new_convnetimage_result: @second_convnetimage_result, convnetimage: @second_convnetimage,
-                    target_selector: '.js-convnetimage-result-2' %>
-                            </div>
         </div>
     </div>
 </aside>
@@ -87,6 +87,10 @@
                 <hr class="light">
                 <p class="text-faded">This tool algorithmically targets and guides candidates for turf replacement. It is built on pictures from the "Save Our Water Rebates" program.  </p>
                 </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                <%= render 'convnetimages/result_form', new_convnetimage_result: @first_convnetimage_result, convnetimage: @first_convnetimage,
+                    target_selector: '.js-convnetimage-result-1' %>
+                            </div>
                                     <div class="js-convnetimage-result-1">
                                         <div class="col-md-6 text-center">
                                             <h4 class="section-heading">Image</h4>
@@ -130,10 +134,6 @@
                             <br>
                             <br>
                             <br>
-                            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <%= render 'convnetimages/result_form', new_convnetimage_result: @first_convnetimage_result, convnetimage: @first_convnetimage,
-                    target_selector: '.js-convnetimage-result-1' %>
-                            </div>
         </div>
     </div>
 </aside>
