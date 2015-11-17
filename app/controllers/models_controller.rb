@@ -2,9 +2,10 @@ class ModelsController < ApplicationController
 before_filter :authenticate_user!, only: [:maker, :new, :create, :edit, :update, :destroy]
   
   def home
-    @first_convnetimage, @second_convnetimage = Convnetimage.order(created_at: :asc).first(2)
+    @first_convnetimage, @second_convnetimage, @third_convnetimage = Convnetimage.order(created_at: :asc).first(3)
     @first_convnetimage_result = ConvnetimageResult.new
     @second_convnetimage_result = ConvnetimageResult.new
+    @third_convnetimage_result = ConvnetimageResult.new
     @natlang = Natlang.order(created_at: :asc).first
     @new_natlang_result = NatlangResult.new
   end

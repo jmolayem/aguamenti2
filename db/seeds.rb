@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Convnetimage.create!(name: 'demo', classifier_id: 'imagenet-1k-net', created_at: 1.year.ago, user: User.third)
-Convnetimage.create!(name: 'demo', classifier_id: '39299', created_at: 1.year.ago, user: User.third)
-Natlang.create!(name: 'langdemo', classifier_id: 35514, created_at: 1.year.ago, user: User.third)
+Convnetimage.create!(name: 'food', classifier_id: '40036', created_at: 1.year.ago, user: User.third)
+Convnetimage.create!(name: 'lawn', classifier_id: '40046', created_at: 1.year.ago, user: User.third)
+Convnetimage.create!(name: 'sewer', classifier_id: '39299', created_at: 1.year.ago, user: User.third)
+Convnetimage.create!(name: 'agriculture', classifier_id: '39300', created_at: 1.year.ago, user: User.third)

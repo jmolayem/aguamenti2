@@ -1,7 +1,7 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <h1>The industry's best A.I. algorithms tackle water</h1>
+            <h1>Image recognition for saving water</h1>
             <hr>
             <p>Here you will find the latest advances in deep learning and computer vision that will help you break down your surroundings to save water.</p>
             <a href="https://www.Govmind.org/datagalleries" class="btn btn-primary btn-xl page-scroll">Datasets</a>
@@ -37,24 +37,24 @@
                                             </thead>
                                             <tbody>
                                               <tr>
-                                                <td>Almond - 1 gal/almond - half min showering</td>
-                                                <td>87.3%</td>
+                                                <td>Almond - 1 gal/almond - half min shower</td>
+                                                <td>81%</td>
                                                 </tr>
                                                 <tr>
-                                                <td>Strawberry</td>
-                                                <td>6.7%</td>
+                                                <td>Olive - 522 gal/lb - 249 min shower</td>
+                                                <td>3%</td>
                                               </tr>
                                               <tr>
-                                                <td>Plan and Profile</td>
-                                                <td>4.0%</td>
+                                                <td>Banana - 102 gal/lb - 49 min shower</td>
+                                                <td>2%</td>
                                               </tr>
                                               <tr>
-                                                <td>Traffic Control</td>
-                                                <td>0.6%</td>
+                                                <td>Orange - 13.2 gal/orange - 6 min shower</td>
+                                                <td>1%</td>
                                               </tr>
                                               <tr>
-                                                <td>Detail</td>
-                                                <td>0.4%</td>
+                                                <td>Peach - 142 gal/lb - 68 min shower</td>
+                                                <td>1%</td>
                                               </tr>
                                             </tbody>
                                         </table>
@@ -73,7 +73,7 @@
         <div class="header-content-inner">
             <h1>Turf and Lawn Analysis at Scale</h1>
             <hr>
-            <p>There are over 1.2 million front lawns in the City of Los Angeles. What if we were able learn everything about them? In. real. time.</p>
+            <p>There are over 1.2 million front lawns in the City of Los Angeles. What if we were able learn everything about them? every. two. weeks.</p>
             <a href="https://www.Govmind.org/datagalleries" class="btn btn-primary btn-xl page-scroll">Datasets</a>
         </div>
     </div>
@@ -92,6 +92,76 @@
                     target_selector: '.js-convnetimage-result-1' %>
                             </div>
                                     <div class="js-convnetimage-result-1">
+                                        <div class="col-md-6 text-center">
+                                            <h4 class="section-heading">Image</h4>
+                                            <img src="lawn.jpg" class="img-responsive" alt="air feed">
+                                        </div>
+                                        <div class="col-md-6 col-md-4 text-center">
+                                            <h4 class="section-heading">Top 5 Predicted Classification</h4>
+                                            <table class="table">
+                                                    <thead>
+                                              <tr>
+                                                <th>Prediction</th>
+                                                <th>Probability</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>Medium - 1000 sq. ft - 300 gal/month - Healthy</td>
+                                                <td>87.3%</td>
+                                                </tr>
+                                                <tr>
+                                                <td>Large - 3000 sq. ft - 100 gal/month - Healthy</td>
+                                                <td>6.7%</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Small - 300 sq ft. - 30 gal/month - Dying</td>
+                                                <td>4.0%</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Tiny 50 sq.ft - 5 gal per month</td>
+                                                <td>0.6%</td>
+                                              </tr>
+                                              <tr>
+                                                <td>All dirt or dying - no water used</td>
+                                                <td>0.4%</td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+        </div>
+    </div>
+</aside>
+
+<section id="services">
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1>Agricultural Orthoimagery at Scale</h1>
+            <hr>
+            <p>There are over 1.2 million front lawns in the City of Los Angeles. What if we were able learn everything about them? every. two. weeks.</p>
+            <a href="https://www.Govmind.org/datagalleries" class="btn btn-primary btn-xl page-scroll">Datasets</a>
+        </div>
+    </div>
+</section>
+
+<aside class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">Big Ag</h2>
+                <hr class="light">
+                <p class="text-faded">Agricultural description</p>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                <%= render 'convnetimages/result_form', new_convnetimage_result: @third_convnetimage_result, convnetimage: @third_convnetimage,
+                    target_selector: '.js-convnetimage-result-3' %>
+                            </div>
+                                    <div class="js-convnetimage-result-3">
                                         <div class="col-md-6 text-center">
                                             <h4 class="section-heading">Image</h4>
                                             <img src="lawn.jpg" class="img-responsive" alt="air feed">
@@ -137,85 +207,6 @@
         </div>
     </div>
 </aside>
-
-    <section id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">browse our reach - we got you covered</h2>
-                    <hr class="primary">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <a href="/datagalleries?category=consumer">
-                        <i class="fa fa-4x fa-shopping-cart wow bounceIn text-primary" data-wow-delay=".2s"></i>
-                        <h3>Consumer</h3>
-                    </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <a href="/datagalleries?category=energy">
-                        <i class="fa fa-4x fa-sun-o wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                        <h3>Energy</h3>
-                    </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <a href="/datagalleries?category=publicsafety">
-                        <i class="fa fa-4x fa-gavel wow bounceIn text-primary" data-wow-delay=".4s"></i>
-                        <h3>Waste</h3>
-                    </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <a href="/datagalleries?category=publicworks">
-                        <i class="fa fa-4x fa-trash wow bounceIn text-primary" data-wow-delay=".5s"></i>
-                        <h3>Public Works</h3>
-                    </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <a href="/datagalleries?category=publichealth">
-                        <i class="fa fa-4x fa-plus-square wow bounceIn text-primary" data-wow-delay=".6s"></i>
-                        <h3>Agriculture</h3>
-                    </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <a href="/datagalleries?category=politics">
-                        <i class="fa fa-4x fa-flag wow bounceIn text-primary" data-wow-delay=".7s"></i>
-                        <h3>Politics</h3>
-                    </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <a href="/datagalleries?category=socialservices">
-                        <i class="fa fa-4x fa-user-plus wow bounceIn text-primary" data-wow-delay=".8s"></i>
-                        <h3>Social Services</h3>
-                    </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <a href="/datagalleries?category=transportation">
-                        <i class="fa fa-4x fa-car wow bounceIn text-primary" data-wow-delay=".9s"></i>
-                        <h3>Transportation</h3>
-                    </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 <aside class="bg-dark">
     <div class="container">
