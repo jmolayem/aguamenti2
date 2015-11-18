@@ -79,7 +79,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 #required for devise. REMEMBER TO CHANGE LOCALHOST TO ACTUAL WEB ADDRESS.
-  config.action_mailer.default_url_options = { host: 'www.Govmind.org' }
+  config.action_mailer.default_url_options = { host: 'www.aguamenti.io' }
   # config/environments/production.rb
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
@@ -87,7 +87,7 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
     :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'www.Govmind.org',
+    :domain         => 'www.aguamenti.io',
     :enable_starttls_auto => true
   }
   

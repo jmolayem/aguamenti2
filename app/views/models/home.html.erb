@@ -1,9 +1,9 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <h1>Image recognition for saving water</h1>
+            <h1>You're a wizard, harry</h1>
             <hr>
-            <p>Here you will find the latest advances in deep learning and computer vision that will help you break down your surroundings to save water.</p>
+            <p>Aguamenti Charm. Pronunciation: /ˌɑːɡwəˈmɛnti/ ah-gwə-men-tee. Produes a jet of water from the caster's wand. Break down your surroundings to save water.</p>
             <a href="https://www.Govmind.org/datagalleries" class="btn btn-primary btn-xl page-scroll">Datasets</a>
         </div>
     </div>
@@ -15,7 +15,7 @@
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2 class="section-heading">food choices matter: image2gallons.</h2>
                 <hr class="light">
-                <p class="text-faded">This demo ties food images to water use. It is "trained" on food images from ImageNet - the largest labeled image database in the world at 14 million images. To use it, upload images of food - bananas, hamburgers, produce, etc. - and hit classify.</p>
+                <p class="text-faded">This demo ties food images to water use. It is "trained" on food images from ImageNet - the largest labeled image database in the world at 14 million images. To use it, submit pictures of food - bananas, hamburgers, produce, etc. - and hit classify.</p>
                 </div>
                                             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <%= render 'convnetimages/result_form', new_convnetimage_result: @second_convnetimage_result, convnetimage: @second_convnetimage,
@@ -68,12 +68,12 @@
     </div>
 </aside>
 
-<section id="services">
+<section id="servicess">
     <div class="header-content">
         <div class="header-content-inner">
-            <h1>Turf and Lawn Analysis at Scale</h1>
+            <h1>turf and lawn analysis at scale</h1>
             <hr>
-            <p>There are over 1.2 million front lawns in the City of Los Angeles. What if we were able learn everything about them? every. two. weeks.</p>
+            <p>There are over 1.2 million front lawns in the City of Los Angeles. What if we were able learn everything about them? at lightning fast speed.</p>
             <a href="https://www.Govmind.org/datagalleries" class="btn btn-primary btn-xl page-scroll">Datasets</a>
         </div>
     </div>
@@ -83,9 +83,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">To rebate or not to rebate?</h2>
+                <h2 class="section-heading">Landscaping Classifier</h2>
                 <hr class="light">
-                <p class="text-faded">This tool algorithmically targets and guides candidates for turf replacement. It is built on pictures from the "Save Our Water Rebates" program.  </p>
+                <p class="text-faded">This classifier detects and categorizes lawn health using Google Street View. This allows water agencies to monitor outdoor water usage at lightning speed and scale that would otherwise be impossible with traditional methods. </p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                 <%= render 'convnetimages/result_form', new_convnetimage_result: @first_convnetimage_result, convnetimage: @first_convnetimage,
@@ -97,7 +97,7 @@
                                             <img src="lawn.jpg" class="img-responsive" alt="air feed">
                                         </div>
                                         <div class="col-md-6 col-md-4 text-center">
-                                            <h4 class="section-heading">Top 5 Predicted Classification</h4>
+                                            <h4 class="section-heading">Top 4 Predicted Classification</h4>
                                             <table class="table">
                                                     <thead>
                                               <tr>
@@ -107,24 +107,16 @@
                                             </thead>
                                             <tbody>
                                               <tr>
-                                                <td>Medium - 1000 sq. ft - 300 gal/month - Healthy</td>
+                                                <td>Green - healthy</td>
                                                 <td>87.3%</td>
                                                 </tr>
                                                 <tr>
-                                                <td>Large - 3000 sq. ft - 100 gal/month - Healthy</td>
+                                                <td>Dying</td>
                                                 <td>6.7%</td>
                                               </tr>
                                               <tr>
-                                                <td>Small - 300 sq ft. - 30 gal/month - Dying</td>
+                                                <td>Drought tolerant detected</td>
                                                 <td>4.0%</td>
-                                              </tr>
-                                              <tr>
-                                                <td>Tiny 50 sq.ft - 5 gal per month</td>
-                                                <td>0.6%</td>
-                                              </tr>
-                                              <tr>
-                                                <td>All dirt or dying - no water used</td>
-                                                <td>0.4%</td>
                                               </tr>
                                             </tbody>
                                         </table>
@@ -138,12 +130,11 @@
     </div>
 </aside>
 
-<section id="services">
+<section id="services3">
     <div class="header-content">
         <div class="header-content-inner">
-            <h1>Agricultural Orthoimagery at Scale</h1>
+            <h1>USING SATELLITES IN SPACE TO TRACK WATER</h1>
             <hr>
-            <p>There are over 1.2 million front lawns in the City of Los Angeles. What if we were able learn everything about them? every. two. weeks.</p>
             <a href="https://www.Govmind.org/datagalleries" class="btn btn-primary btn-xl page-scroll">Datasets</a>
         </div>
     </div>
@@ -155,7 +146,7 @@
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2 class="section-heading">Big Ag</h2>
                 <hr class="light">
-                <p class="text-faded">Agricultural description</p>
+                <p class="text-faded">This demo classifies specific features on aerial orthoimagery acquired from the United States Geologic Survey (USGS) and Landsat 8 satellite. </p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                 <%= render 'convnetimages/result_form', new_convnetimage_result: @third_convnetimage_result, convnetimage: @third_convnetimage,
@@ -164,7 +155,7 @@
                                     <div class="js-convnetimage-result-3">
                                         <div class="col-md-6 text-center">
                                             <h4 class="section-heading">Image</h4>
-                                            <img src="lawn.jpg" class="img-responsive" alt="air feed">
+                                            <img src="agriculture.jpg" class="img-responsive" alt="air feed">
                                         </div>
                                         <div class="col-md-6 col-md-4 text-center">
                                             <h4 class="section-heading">Top 5 Predicted Classification</h4>
@@ -177,24 +168,20 @@
                                             </thead>
                                             <tbody>
                                               <tr>
-                                                <td>Large - 3000 sq. ft - 300 gal/month</td>
-                                                <td>87.3%</td>
+                                                <td>Heavy Growth - Small Lots</td>
+                                                <td>99%</td>
                                                 </tr>
                                                 <tr>
-                                                <td>Medium - 1000 sq. ft - 100 gal/month</td>
-                                                <td>6.7%</td>
+                                                <td>Little Growth - Small Lots</td>
+                                                <td>less than 1%</td>
                                               </tr>
                                               <tr>
-                                                <td>Small - 300 sq ft. - 30 gal/month</td>
-                                                <td>4.0%</td>
+                                                <td>Little Growth - Big Lots</td>
+                                                <td>less than 1%</td>
                                               </tr>
                                               <tr>
-                                                <td>Tiny 50 sq.ft - 5 gal per month</td>
-                                                <td>0.6%</td>
-                                              </tr>
-                                              <tr>
-                                                <td>All dirt or dying - no water used</td>
-                                                <td>0.4%</td>
+                                                <td>Heavy Growth - Big Lots</td>
+                                                <td>less than 1%</td>
                                               </tr>
                                             </tbody>
                                         </table>
