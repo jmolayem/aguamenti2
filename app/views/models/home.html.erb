@@ -13,18 +13,18 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">food choices matter: image2gallons.</h2>
+                <h2 class="section-heading">Big Ag Forecasting</h2>
                 <hr class="light">
-                <p class="text-faded">This demo ties food images to water use. It is "trained" on food images from ImageNet - the largest labeled image database in the world at 14 million images. To use it, submit pictures of food - bananas, hamburgers, produce, etc. - and hit classify.</p>
+                <p class="text-faded">This demo classifies specific features on aerial orthoimagery acquired from the United States Geologic Survey (USGS) and Landsat 8 satellite. Upload a tile photo from satellite data and hit classify. </p>
                 </div>
-                                            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <%= render 'convnetimages/result_form', new_convnetimage_result: @second_convnetimage_result, convnetimage: @second_convnetimage,
-                    target_selector: '.js-convnetimage-result-2' %>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                <%= render 'convnetimages/result_form', new_convnetimage_result: @third_convnetimage_result, convnetimage: @third_convnetimage,
+                    target_selector: '.js-convnetimage-result-3' %>
                             </div>
-                                    <div class="js-convnetimage-result-2">
+                                    <div class="js-convnetimage-result-3">
                                         <div class="col-md-6 text-center">
                                             <h4 class="section-heading">Image</h4>
-                                            <img src="fhwas.jpg" class="img-responsive" alt="air feed">
+                                            <img src="agriculture.jpg" class="img-responsive" alt="air feed">
                                         </div>
                                         <div class="col-md-6 col-md-4 text-center">
                                             <h4 class="section-heading">Top 5 Predicted Classification</h4>
@@ -37,24 +37,24 @@
                                             </thead>
                                             <tbody>
                                               <tr>
-                                                <td>Almond - 1 gal/almond - half min shower</td>
-                                                <td>81%</td>
+                                                <td>Heavy Growth - Small Lots</td>
+                                                <td>99%</td>
                                                 </tr>
                                                 <tr>
-                                                <td>Olive - 522 gal/lb - 249 min shower</td>
-                                                <td>3%</td>
+                                                <td>Little Growth - Small Lots</td>
+                                                <td>less than 1%</td>
                                               </tr>
                                               <tr>
-                                                <td>Banana - 102 gal/lb - 49 min shower</td>
-                                                <td>2%</td>
+                                                <td>Little Growth - Big Lots</td>
+                                                <td>less than 1%</td>
                                               </tr>
                                               <tr>
-                                                <td>Orange - 13.2 gal/orange - 6 min shower</td>
-                                                <td>1%</td>
+                                                <td>Heavy Growth - Big Lots</td>
+                                                <td>less than 1%</td>
                                               </tr>
                                               <tr>
-                                                <td>Peach - 142 gal/lb - 68 min shower</td>
-                                                <td>1%</td>
+                                                <td>All dirt or dying - no water used</td>
+                                                <td>0.4%</td>
                                               </tr>
                                             </tbody>
                                         </table>
@@ -144,18 +144,18 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Big Ag</h2>
+                <h2 class="section-heading">food choices matter: image2gallons.</h2>
                 <hr class="light">
-                <p class="text-faded">This demo classifies specific features on aerial orthoimagery acquired from the United States Geologic Survey (USGS) and Landsat 8 satellite. </p>
+                <p class="text-faded">This demo ties food images to water use. It is "trained" on food images from ImageNet - the largest labeled image database in the world at 14 million images. To use it, submit pictures of food - bananas, hamburgers, produce, etc. - and hit classify.</p>
                 </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                <%= render 'convnetimages/result_form', new_convnetimage_result: @third_convnetimage_result, convnetimage: @third_convnetimage,
-                    target_selector: '.js-convnetimage-result-3' %>
+                                            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <%= render 'convnetimages/result_form', new_convnetimage_result: @second_convnetimage_result, convnetimage: @second_convnetimage,
+                    target_selector: '.js-convnetimage-result-2' %>
                             </div>
-                                    <div class="js-convnetimage-result-3">
+                                    <div class="js-convnetimage-result-2">
                                         <div class="col-md-6 text-center">
                                             <h4 class="section-heading">Image</h4>
-                                            <img src="agriculture.jpg" class="img-responsive" alt="air feed">
+                                            <img src="fhwas.jpg" class="img-responsive" alt="air feed">
                                         </div>
                                         <div class="col-md-6 col-md-4 text-center">
                                             <h4 class="section-heading">Top 5 Predicted Classification</h4>
@@ -168,24 +168,24 @@
                                             </thead>
                                             <tbody>
                                               <tr>
-                                                <td>Heavy Growth - Small Lots</td>
-                                                <td>99%</td>
+                                                <td>Almond - 1 gal/almond - half min shower</td>
+                                                <td>81%</td>
                                                 </tr>
                                                 <tr>
-                                                <td>Little Growth - Small Lots</td>
-                                                <td>less than 1%</td>
+                                                <td>Olive - 522 gal/lb - 249 min shower</td>
+                                                <td>3%</td>
                                               </tr>
                                               <tr>
-                                                <td>Little Growth - Big Lots</td>
-                                                <td>less than 1%</td>
+                                                <td>Banana - 102 gal/lb - 49 min shower</td>
+                                                <td>2%</td>
                                               </tr>
                                               <tr>
-                                                <td>Heavy Growth - Big Lots</td>
-                                                <td>less than 1%</td>
+                                                <td>Orange - 13.2 gal/orange - 6 min shower</td>
+                                                <td>1%</td>
                                               </tr>
                                               <tr>
-                                                <td>All dirt or dying - no water used</td>
-                                                <td>0.4%</td>
+                                                <td>Peach - 142 gal/lb - 68 min shower</td>
+                                                <td>1%</td>
                                               </tr>
                                             </tbody>
                                         </table>
